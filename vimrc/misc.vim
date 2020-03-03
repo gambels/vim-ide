@@ -55,37 +55,6 @@ endif
 set backupdir=~/.vim/backup
 set backup
 
-" Only display filename for tab caption
-set guitablabel=%t
-
-" enable terminal mouse support
-set mouse=a
-
-" enable over line end selection
-"set ve=all
-
-
-" Suffixes that get lower priority when doing tab completion for filenames.
-" These are files we are not likely to want to edit or read.
-set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc
-
-" substitute these typos for what I DWIM'd
-"cabbrev W w
-"cabbrev Wq wq
-"cabbrev Q q
-
-" Only do this part when compiled with support for autocommands.
-if has("autocmd")
-  " When editing a file, always jump to the last known cursor position.
-  " Don't do it when the position is invalid or when inside an event handler
-  " (happens when dropping a file on gvim).
-    autocmd BufReadPost *
-        \ if line("'\"") > 0 && line("'\"") <= line("$") |
-        \   exe "normal g`\"" |
-        \ endif
-
-endif
-
 " =============================================================================
 " Section: Configure folding
 " =============================================================================
@@ -93,13 +62,13 @@ endif
 " Set fold method based on indent
 set foldmethod=indent
 
-" Set deepest fold to 10 levels
+" Set deepest fold level to 10
 set foldnestmax=10
 
 " Do not fold by default
 set nofoldenable
 
-" This is just what i use
+" Set fold level to 1
 set foldlevel=1
 
 " =============================================================================
@@ -117,6 +86,7 @@ set scrolloff=3
 
 " Always show status bar
 set laststatus=2
+
 " Get rid of -- INSERT --. It is displayed in the statusline
 set noshowmode
 
@@ -129,10 +99,11 @@ if &term =~? 'mlterm\|xterm\|screen-256'
 else
   colorscheme wombat
 endif
+
 if has('gui_running')
-    set background=light
+  set background=light
 else
-    set background=dark
+  set background=dark
 endif
 
 " autocompletition of files and commands behaves like shell
@@ -154,4 +125,29 @@ endif
 " Change cursor shape in different modes - Konsole
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+
+" Only display filename for tab caption
+set guitablabel=%t
+
+" enable terminal mouse support
+set mouse=a
+
+" enable over line end selection
+"set ve=all
+
+" Suffixes that get lower priority when doing tab completion for filenames.
+" These are files we are not likely to want to edit or read.
+set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc
+
+" Only do this part when compiled with support for autocommands.
+if has("autocmd")
+  " When editing a file, always jump to the last known cursor position.
+  " Don't do it when the position is invalid or when inside an event handler
+  " (happens when dropping a file on gvim).
+    autocmd BufReadPost *
+        \ if line("'\"") > 0 && line("'\"") <= line("$") |
+        \   exe "normal g`\"" |
+        \ endif
+
+endif
 
