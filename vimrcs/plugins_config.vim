@@ -4,12 +4,12 @@
 let g:lightline = {
       \ 'colorscheme': 'wombat',
       \ 'active': {
-      " \   'left': [ ['mode', 'paste'],
+      \   'left': [ ['mode', 'paste'],
       \             ['fugitive', 'readonly', 'filename', 'modified'] ],
       \   'right': [ [ 'lineinfo' ], ['percent'] ]
       \ },
       \ 'component': {
-      \   'readonly': '%{&filetype=="help"?"":&readonly?"🔒":""}',
+      \   'readonly': '%{&filetype=="help"?"":&readonly?"[ro]":""}',
       \   'modified': '%{&filetype=="help"?"":&modified?"+":&modifiable?"":"-"}',
       \   'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}'
       \ },
@@ -21,7 +21,6 @@ let g:lightline = {
       \ 'separator': { 'left': ' ', 'right': ' ' },
       \ 'subseparator': { 'left': ' ', 'right': ' ' }
       \ }
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => syntastic

@@ -7,6 +7,10 @@
 filetype plugin on
 filetype indent on
 
+" Set to auto read when a file is changed from the outside
+set autoread
+au FocusGained,BufEnter * checktime
+
 " =============================================================================
 " Section: Configure shell
 " =============================================================================
@@ -18,19 +22,34 @@ let $PATH=system('echo $PATH')
 " =============================================================================
 " Section: Configure tabs and space handling
 " =============================================================================
-
-" Set tabs and space handling
+" Use spaces instead of tabs
 set expandtab
-set tabstop=2
-set softtabstop=2
-set shiftwidth=2
 
-" =============================================================================
+" Be smart when using tabs
+set smarttab
+
+" 1 tab == 4 spaces
+set shiftwidth=2
+set softtabstop=2
+set tabstop=2
+
+" Linebreak on 500 characters
+set lbr
+set tw=500
+
+set ai "Auto indent
+set si "Smart indent
+set wrap "Wrap lines
+
+"=============================================================================
 " Section: Configure search
 " =============================================================================
 
 " Set case-insensitive search
-set ic
+set ignorecase
+
+" Ignore case only it pattern consist of lower case letters only
+set smartcase
 
 " Set incremental search
 set incsearch
@@ -117,20 +136,37 @@ set scrolloff=3
 
 " Always show status bar
 set laststatus=2
+
 " Get rid of -- INSERT --. It is displayed in the statusline
 set noshowmode
+
+" set utf8 as standard encoding
+set encoding=utf8
+
+" Use Unix as the standard file type
+set ffs=unix,dos,mac
 
 " Enable syntax highlighting
 syntax on
 
 " Set color sheme to 256 colors when possible
 if &term =~? 'mlterm\|xterm\|screen-256'
-  colorscheme wombat256mod
+  try
+    colorscheme wombat256mod
+  catch
+  endtry
 else
-  colorscheme wombat
+  try
+    colorscheme wombat
+  catch
+  endtry
 endif
+
+" Set extra options when running in GUI mode
 if has('gui_running')
-    set background=light
+  set background=light
+  set t_Co=256
+  set guitablabel=%M\ %t
 else
     set background=dark
 endif
@@ -143,7 +179,8 @@ set wildmode=list:longest
 set display=lastline
 
 " Turn on listing non-text chars
-set list listchars=tab:»·,trail:·,eol:$
+" set list listchars=tab:»·,trail:·,eol:$
+set list listchars=tab:»·,trail:·
 
 " Max Line-Width Highlighting (Vim >= 7.3)
 if version >= 703
