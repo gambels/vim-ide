@@ -37,6 +37,7 @@ set nocompatible
 
  if 1 == vimrc_plugins
    so $DIR/vimrcs/plugins.vim
+   so $DIR/vimrcs/plugins_config.vim
  endif
 "
 

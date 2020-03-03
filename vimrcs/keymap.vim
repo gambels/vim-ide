@@ -148,7 +148,6 @@ map <F2> <ESC>tl<CR>
 " Paste Toggle
 nnoremap <S-F2> :set invpaste paste?<CR>
 set pastetoggle=<S-F2>
-set showmode
 
 " map <silent> <F12> <ESC>:!~/.vim/tools/ctags-updater.sh &<CR>
 
