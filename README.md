@@ -1,7 +1,7 @@
 # vim-ide
 
 # Install vim-ide
-git clone --recurse-submodules https://github.com/nuccleon/vim-ide.git
+```git clone --recurse-submodules https://github.com/nuccleon/vim-ide.git```
 ### .. for current user
 ```./vim-ide/install.sh```
 ### .. for dedicated users
@@ -10,9 +10,9 @@ git clone --recurse-submodules https://github.com/nuccleon/vim-ide.git
 ```./vim-ide/install.sh --all```
 
 # Install/Update plugins
-:PackUpdate
-:helptags ALL
+```:PackUpdate```
+```:helptags ALL```
 
 # Clean plugins
-:PackClean
+```:PackClean```
 
