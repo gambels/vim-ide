@@ -11,6 +11,7 @@ VIMRC="
 \" Description: Main vim run command script
 \" =============================================================================
 
+\" Using $DIR instead of vimfiles
 set packpath^=$DIR
 
 \" No vi-compatible
@@ -39,28 +40,31 @@ set nocompatible
  endif
 "
 
-IFS=''
 if [ $# -eq 0 ]; then
+    IFS = ''
     echo $VIMRC > ~/.vimrc
-elif [ $2 == "--all" ]; then
+    unset IFS
+elif [ $1 == "--all" ]; then
     USERS=($(ls -l /home | awk '{if(NR>1)print $9}'))
     for user in ${USERS[*]}; do
         homepath=$(eval echo "~$user")
         IFS=''
         echo $VIMRC > ${homepath}/.vimrc
+        unset IFS
         echo "Installed vim-ide configuration for user $user successfully! Enjoy :-)"
     done
     echo "Installed vim-ide configuration successfully! Enjoy :-)"
     exit 0
 else
-    SELECTED_USERS=(${@:2})
+    SELECTED_USERS=(${@:1})
     echo "Selected users: ${SELECTED_USERS[@]}"
     for user in ${SELECTED_USERS[@]}; do
         homepath=$(eval echo "~$user")
+        IFS=''
         echo $VIMRC > ${homepath}/.vimrc
+        unset IFS
         echo "Installed the vim-ide configuration for user $user successfully! Enjoy :-)"
     done
     exit 0
 fi
 
-unset IFS
