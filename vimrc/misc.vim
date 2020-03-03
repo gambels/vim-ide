@@ -117,6 +117,8 @@ set scrolloff=3
 
 " Always show status bar
 set laststatus=2
+" Get rid of -- INSERT --. It is displayed in the statusline
+set noshowmode
 
 " Enable syntax highlighting
 syntax on
@@ -127,6 +129,11 @@ if &term =~? 'mlterm\|xterm\|screen-256'
 else
   colorscheme wombat
 endif
+if has('gui_running')
+    set background=light
+else
+    set background=dark
+endif
 
 " autocompletition of files and commands behaves like shell
 " (complete only the common part, list the options that match)
@@ -134,10 +141,6 @@ set wildmode=list:longest
 
 " enable better behavior for showing long lines
 set display=lastline
-
-" to use fancy symbols for powerline, uncomment the following line and use a
-" patched font (more info on the README.rst)
-let g:Powerline_symbols = 'fancy'
 
 " Turn on listing non-text chars
 set list listchars=tab:»·,trail:·,eol:$
