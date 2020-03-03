@@ -1,3 +1,6 @@
 [submodule "pack/minpac/opt/minpack"]
-	path = pack/minpac/opt/minpack
+	path = pack/minpac/opt/minpac
+	url = https://github.com/k-takata/minpac.git
+[submodule "pack/minpac/opt/minpac"]
+	path = pack/minpac/opt/minpac
 	url = https://github.com/k-takata/minpac.git
