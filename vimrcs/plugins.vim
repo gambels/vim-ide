@@ -24,6 +24,7 @@ call minpac#add('vim-scripts/Wombat')
 call minpac#add('vim-scripts/wombat256.vim')
 call minpac#add('tpope/vim-unimpaired')
 call minpac#add('tpope/vim-dispatch')
+call minpac#add('tpope/vim-commentary')
 call minpac#add('majutsushi/tagbar')
 
 " Define minpac user commands

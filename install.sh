@@ -42,15 +42,15 @@ set nocompatible
 "
 
 if [ $# -eq 0 ]; then
-    IFS = ''
-    echo $VIMRC > ~/.vimrc
+    IFS=''
+    echo "$VIMRC" > ~/.vimrc
     unset IFS
-elif [ $1 == "--all" ]; then
+elif [ "$1" == "--all" ]; then
     USERS=($(ls -l /home | awk '{if(NR>1)print $9}'))
     for user in ${USERS[*]}; do
         homepath=$(eval echo "~$user")
         IFS=''
-        echo $VIMRC > ${homepath}/.vimrc
+        echo "$VIMRC" > "${homepath}"/.vimrc
         unset IFS
         echo "Installed vim-ide configuration for user $user successfully! Enjoy :-)"
     done
@@ -62,7 +62,7 @@ else
     for user in ${SELECTED_USERS[@]}; do
         homepath=$(eval echo "~$user")
         IFS=''
-        echo $VIMRC > ${homepath}/.vimrc
+        echo "$VIMRC" > "${homepath}"/.vimrc
         unset IFS
         echo "Installed the vim-ide configuration for user $user successfully! Enjoy :-)"
     done
