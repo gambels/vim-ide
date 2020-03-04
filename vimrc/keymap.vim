@@ -15,8 +15,8 @@ map <F4> :TagbarToggle<CR>
 
 
 " NERDTree (better file browser) toggle
-map <F3> :NERDTreeToggle<CR>
-map <LEADER># :NERDTreeFind<CR>
+map <F3> :NERDTreeToggle %<CR>
+map <LEADER># :NERDTreeFind %<CR>
 
 " =============================================================================
 " Section: Tab navigation
