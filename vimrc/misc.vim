@@ -7,6 +7,10 @@
 filetype plugin on
 filetype indent on
 
+" Set to auto read when a file is changed from the outside
+set autoread
+au FocusGained,BufEnter * checktime
+
 " =============================================================================
 " Section: Configure shell
 " =============================================================================
@@ -19,18 +23,32 @@ let $PATH=system('echo $PATH')
 " Section: Configure tabs and space handling
 " =============================================================================
 
-" Set tabs and space handling
+" Use spaces instead of tabs
 set expandtab
+" Be smart when using tabs
+set smarttab
+" 1 tab == 2 spaces
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
+
+" Linebreak on 500 characters
+set linebreak
+set textwidth=500
+
+set autoindent
+set smartindent
+set wrap "Wrap lines
 
 " =============================================================================
 " Section: Configure search
 " =============================================================================
 
 " Set case-insensitive search
-set ic
+set ignorecase
+
+" Ignore case only if pattern consist of lower case letters only
+set smartcase
 
 " Set incremental search
 set incsearch
@@ -90,6 +108,15 @@ set laststatus=2
 " Get rid of -- INSERT --. It is displayed in the statusline
 set noshowmode
 
+" Always show tabline
+set showtabline=2
+
+" Set utf8 as standard encoding
+set encoding=utf8
+
+" Use Unix as the standard file type
+set ffs=unix,dos,mac
+
 " Enable syntax highlighting
 syntax on
 
@@ -102,8 +129,12 @@ endif
 
 if has('gui_running')
   set background=light
+  set t_Co=256
+  set guitablabel=%M\ %t
 else
   set background=dark
+  " Only display filename for tab caption
+  set guitablabel=%t
 endif
 
 " autocompletition of files and commands behaves like shell
@@ -114,7 +145,8 @@ set wildmode=list:longest
 set display=lastline
 
 " Turn on listing non-text chars
-set list listchars=tab:»·,trail:·,eol:$
+" set list listchars=tab:»·,trail:·,eol:$
+set list listchars=tab:»·,trail:·
 
 " Max Line-Width Highlighting (Vim >= 7.3)
 if version >= 703
@@ -125,9 +157,6 @@ endif
 " Change cursor shape in different modes - Konsole
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
-
-" Only display filename for tab caption
-set guitablabel=%t
 
 " enable terminal mouse support
 set mouse=a
