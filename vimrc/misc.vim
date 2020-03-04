@@ -108,6 +108,9 @@ set laststatus=2
 " Get rid of -- INSERT --. It is displayed in the statusline
 set noshowmode
 
+" Always show tabline
+set showtabline=2
+
 " Set utf8 as standard encoding
 set encoding=utf8
 
@@ -130,6 +133,8 @@ if has('gui_running')
   set guitablabel=%M\ %t
 else
   set background=dark
+  " Only display filename for tab caption
+  set guitablabel=%t
 endif
 
 " autocompletition of files and commands behaves like shell
@@ -152,9 +157,6 @@ endif
 " Change cursor shape in different modes - Konsole
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
-
-" Only display filename for tab caption
-set guitablabel=%t
 
 " enable terminal mouse support
 set mouse=a
