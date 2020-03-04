@@ -13,32 +13,35 @@ map <F4> :TagbarToggle<CR>
 " autofocus on Tagbar open
 " let g:tagbar_autofocus = 1
 
-let NERDChristmasTree = 1
-let NERDTreeShowHidden = 1
 
 " NERDTree (better file browser) toggle
 map <F3> :NERDTreeToggle<CR>
 map <LEADER># :NERDTreeFind<CR>
 
-" tab navigation
+" =============================================================================
+" Section: Tab navigation
+" =============================================================================
+
 map tn :tabn<CR>
 map tp :tabp<CR>
 map tm :tabm<CR>
 map tt :tabnew<CR>
 map to :tabonly!<CR>
 
-" Alt+arrow Navigation
+map <C-T> <ESC>:tabnew<CR>
+map <C-W> <ESC>:confirm bdelete<CR>
+
+" =============================================================================
+" Section: Window navigation
+" =============================================================================
+
 nmap <silent> <A-Up> :wincmd k<CR>
 nmap <silent> <A-Down> :wincmd j<CR>
 nmap <silent> <A-Left> :wincmd h<CR>
 nmap <silent> <A-Right> :wincmd l<CR>
 
-map <C-T> <ESC>:tabnew<CR>
-map <C-W> <ESC>:confirm bdelete<CR>
-
-
-noremap <ESC>s :split<CR>
-noremap <ESC>v :vsplit<CR>
+noremap <LEADER>- :split<CR>
+noremap <LEADER>\| :vsplit<CR>
 
 " To UTF8/Unix
 nmap <leader>su :setlocal ff=unix<CR>:set fileencoding=utf8<CR>:w<CR>
