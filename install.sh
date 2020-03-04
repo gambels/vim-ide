@@ -54,9 +54,14 @@ for USER in $USERS; do
   user_home=$(eval echo "~$USER")
   user_vimrc="${user_home}/.vimrc"
 
-  echo "$VIMRC" > "$user_vimrc" && chown ${USER}.${USER} "$user_vimrc" || exit 1
+  echo "$VIMRC" > "$user_vimrc" && chown "$USER"."$USER" "$user_vimrc" || exit 1
   echo "Installed the vim-ide configuration for user '$USER' successfully! Enjoy :-)"
 done
+
+echo "Update plugins .."
+vim -N -u "$DIR"/vimrc/plugins.vim -c "call minpac#update('', {'do': 'quit'})" -es
+echo "Update helptags .."
+vim -N -u "$DIR"/vimrc/plugins.vim -c "silent! helptags ALL" -c "quit" -es
 
 exit 0
 
