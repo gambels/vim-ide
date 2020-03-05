@@ -30,9 +30,10 @@ endfunction
 " Section: k-takata/minpac
 " =============================================================================
 " Define minpac user commands
-command! PackUpdate call PackInit() | call minpac#update('', {'do': 'call minpac#status()'})
-command! PackClean  call PackInit() | call minpac#clean()
-command! PackStatus call PackInit() | call minpac#status()
+command! PackUpdate  call PackInit() | call minpac#update('', {'do': 'call minpac#status()'})
+command! PackClean   call PackInit() | call minpac#clean()
+command! PackStatus  call PackInit() | call minpac#status()
+command! PackInstall call PackInit() | call minpac#update('', {'do': 'quit'})
 
 " =============================================================================
 " Section: scrooloose/nerdtree
