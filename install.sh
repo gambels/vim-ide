@@ -42,7 +42,7 @@ EOF
 )
 
 if [ $# -eq 0 ]; then
-  USERS=$(users)
+  USERS=$(id -un)
 elif [ "$1" == "--all" ]; then
   USERS=$(getent passwd | grep /home | cut -d: -f1 | tr '\n' ' ')
 else
