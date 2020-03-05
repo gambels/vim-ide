@@ -15,8 +15,8 @@ map <F4> :TagbarToggle<CR>
 
 
 " NERDTree (better file browser) toggle
-map <F3> :NERDTreeToggle %<CR>
-map <LEADER># :NERDTreeFind %<CR>
+map <F3> :NERDTreeToggle<CR>
+map <LEADER># :NERDTreeFind<CR>
 
 " =============================================================================
 " Section: Tab navigation
@@ -67,8 +67,8 @@ map <leader>hf <ESC>:silent %!tidy -mi -xml -wrap 0 %<CR>
 nnoremap <leader>iu m'A<C-R>=InsertCmd('uuidgen', "'")<CR><CR><Esc>``
 
 " Strip trailing whitespaces
-map <leader>sw <ESC>:call TrimWhiteSpace()<CR><CR>
-imap <leader>sw <ESC>:call TrimWhiteSpace()<CR><CR>i
+" map <leader>sw <ESC>:call TrimWhiteSpace()<CR><CR>
+" imap <leader>sw <ESC>:call TrimWhiteSpace()<CR><CR>i
 
 " Escape visual selection
 map <leader>es <ESC>:s/\%V"/\\"/g<CR>:s/\%V'/\\'/g<CR>
