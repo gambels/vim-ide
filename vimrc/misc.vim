@@ -139,6 +139,7 @@ endif
 
 " autocompletition of files and commands behaves like shell
 " (complete only the common part, list the options that match)
+set wildmenu
 set wildmode=list:longest
 
 " enable better behavior for showing long lines
