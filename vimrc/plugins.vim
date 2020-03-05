@@ -10,20 +10,33 @@ function! PackInit() abort
   packadd minpac
 
   " Initialize minpac and load all "start" plugins automatically
-  call minpac#init()
+  call minpac#init({'verbose': '3'})
 
   " Register plugins for install/update/clean
   call minpac#add('k-takata/minpac', {'type': 'opt'})
+
+  " A tree explorer plugin for vim.
   call minpac#add('scrooloose/nerdtree')
+  " Syntax checking hacks for vim.
   call minpac#add('scrooloose/syntastic')
+  " A command-line fuzzy finder
   call minpac#add('junegunn/fzf')
-  call minpac#add('itchyny/lightline.vim')
+  " lean & mean status/tabline for vim that's light as air
+  call minpac#add('vim-airline/vim-airline')
+  call minpac#add('vim-airline/vim-airline-themes')
+  " Pairs of handy bracket mappings
+  call minpac#add('tpope/vim-unimpaired')
+  " Asynchronous build and test dispatcher
+  call minpac#add('tpope/vim-dispatch')
+  " Comment stuff out
+  call minpac#add('tpope/vim-commentary')
+  " A Git wrapper so awesome, it should be illegal
+  call minpac#add('tpope/vim-fugitive')
+  " A class outline viewer for Vim
+  call minpac#add('majutsushi/tagbar')
+  
   call minpac#add('vim-scripts/Wombat')
   call minpac#add('vim-scripts/wombat256.vim')
-  call minpac#add('tpope/vim-unimpaired')
-  call minpac#add('tpope/vim-dispatch')
-  call minpac#add('tpope/vim-commentary')
-  call minpac#add('majutsushi/tagbar')
 endfunction
 
 " =============================================================================
@@ -62,27 +75,10 @@ let NERDTreeShowHidden = 1
 nnoremap <C-p> :<C-u>FZF<CR>
 
 " =============================================================================
-" Section: ligthline
+" Section: vim-airline
 " =============================================================================
-
-let g:lightline = { 
-      \ 'colorscheme': 'wombat',
-      \ 'active': {
-      \   'left': [ ['mode', 'paste'],
-      \             ['fugitive', 'readonly', 'filename', 'modified'] ],
-      \   'right': [ [ 'lineinfo' ], ['percent'] ]
-      \ },
-      \ 'component': {
-      \   'readonly': '%{&filetype=="help"?"":&readonly?"[ro]":""}',
-      \   'modified': '%{&filetype=="help"?"":&modified?"+":&modifiable?"":"-"}',
-      \   'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}'
-      \ },
-      \ 'component_visible_condition': {
-      \   'readonly': '(&filetype!="help"&& &readonly)',
-      \   'modified': '(&filetype!="help"&&(&modified||!&modifiable))',
-      \   'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())'
-      \ },
-      \ 'separator': { 'left': ' ', 'right': ' ' },
-      \ 'subseparator': { 'left': ' ', 'right': ' ' }
-      \ }
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme='wombat'
+let g:airline#extensions#tabline#formatter = 'unique_tail'
 
