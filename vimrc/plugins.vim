@@ -10,7 +10,7 @@ function! PackInit() abort
   packadd minpac
 
   " Initialize minpac and load all "start" plugins automatically
-  call minpac#init({'verbose': '3'})
+  call minpac#init({'verbose': '5'})
 
   " Register plugins for install/update/clean
   call minpac#add('k-takata/minpac', {'type': 'opt'})
@@ -20,7 +20,7 @@ function! PackInit() abort
   " Syntax checking hacks for vim.
   call minpac#add('scrooloose/syntastic')
   " A command-line fuzzy finder
-  call minpac#add('junegunn/fzf')
+  call minpac#add('junegunn/fzf',{'do': 'call fzf#install()'})
   " lean & mean status/tabline for vim that's light as air
   call minpac#add('vim-airline/vim-airline')
   call minpac#add('vim-airline/vim-airline-themes')
@@ -34,7 +34,8 @@ function! PackInit() abort
   call minpac#add('tpope/vim-fugitive')
   " A class outline viewer for Vim
   call minpac#add('majutsushi/tagbar')
-  
+  " A code-completion engine for Vim
+  " call minpac#add('ycm-core/YouCompleteMe')
   call minpac#add('vim-scripts/Wombat')
   call minpac#add('vim-scripts/wombat256.vim')
 endfunction
