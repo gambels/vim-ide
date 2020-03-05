@@ -169,6 +169,15 @@ set mouse=a
 " These are files we are not likely to want to edit or read.
 set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc
 
+" Delete trailing white space on save, useful for some filetypes ;)
+function! TrimWhiteSpace()
+    let save_cursor = getpos(".")
+    let old_query = getreg('/')
+    silent! %s/\s\+$//e
+    call setpos('.', save_cursor)
+    call setreg('/', old_query)
+endfun
+
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
   " When editing a file, always jump to the last known cursor position.
@@ -179,5 +188,7 @@ if has("autocmd")
         \   exe "normal g`\"" |
         \ endif
 
+    autocmd BufWritePre *.txt,*.js,*.py,*.wiki,*.sh,*.md,*.cpp,*.h,*.hpp,*.c,*.mk,*.vim :call TrimWhiteSpace()
 endif
+
 
