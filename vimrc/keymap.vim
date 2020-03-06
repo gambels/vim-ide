@@ -15,8 +15,8 @@ map <F4> :TagbarToggle<CR>
 
 
 " NERDTree (better file browser) toggle
-map <F3> :NERDTreeToggle<CR>
-map <LEADER># :NERDTreeFind<CR>
+map <F3> :NERDTreeToggle %<CR>
+map <LEADER># :NERDTreeFind %<CR>
 
 " =============================================================================
 " Section: Tab navigation
@@ -90,8 +90,9 @@ imap <LEADER>da <ESC>:AlignCtrl default<CR>i
 map <LEADER>c <ESC>:%s/[[:cntrl:]]//g<CR>
 
 " Check the syntax of the buffer
-map <F11> <ESC>:SyntasticCheck<CR>:Errors<CR>
-imap <F11> <ESC>:SyntasticCheck<CR>:Errors<CR>i
+map <LEADER>sc <ESC>:SyntasticCheck<CR>:Errors<CR>
+imap <LEADER>sc <ESC>:SyntasticCheck<CR>:Errors<CR>i
+map <LEADER>sr <ESC>:SyntasticReset<CR>
 
 " Move Lines / Selections
 nnoremap <A-j> :m .+1<CR>==
