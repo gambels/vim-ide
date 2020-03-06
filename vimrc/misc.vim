@@ -25,20 +25,25 @@ let $PATH=system('echo $PATH')
 
 " Use spaces instead of tabs
 set expandtab
+
 " Be smart when using tabs
 set smarttab
+
 " 1 tab == 2 spaces
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
 
-" Linebreak on 500 characters
+" Linebreak on 120 characters
 set linebreak
-set textwidth=500
+set textwidth=120
 
+" Copy indent from current line when starting a new line, but be smart
 set autoindent
 set smartindent
-set wrap "Wrap lines
+
+" Wrap lines when longer than window width
+set wrap
 
 " =============================================================================
 " Section: Configure search
@@ -145,8 +150,7 @@ set wildmode=list:longest
 set display=lastline
 
 " Turn on listing non-text chars
-" set list listchars=tab:»·,trail:·,eol:$
-set list listchars=tab:»·,trail:·
+set list listchars=tab:»·,trail:·,eol:$
 
 " Max Line-Width Highlighting (Vim >= 7.3)
 if version >= 703
