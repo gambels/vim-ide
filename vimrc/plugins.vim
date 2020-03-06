@@ -10,7 +10,7 @@ function! PackInit() abort
   packadd minpac
 
   " Initialize minpac and load all "start" plugins automatically
-  call minpac#init({'verbose': '5'})
+  call minpac#init({'verbose': '3'})
 
   " Register plugins for install/update/clean
   call minpac#add('k-takata/minpac', {'type': 'opt'})
@@ -35,7 +35,8 @@ function! PackInit() abort
   " A class outline viewer for Vim
   call minpac#add('majutsushi/tagbar')
   " A code-completion engine for Vim
-  " call minpac#add('ycm-core/YouCompleteMe')
+  " call minpac#add('ycm-core/YouCompleteMe',{'do': {-> system('./install.py --clangd-completer')}})
+  " Cosmetics
   call minpac#add('vim-scripts/Wombat')
   call minpac#add('vim-scripts/wombat256.vim')
 endfunction
