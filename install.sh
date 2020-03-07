@@ -59,9 +59,9 @@ for USER in $USERS; do
 done
 
 echo "Update plugins .."
-vim -N -u "$DIR"/vimrc/plugins.vim -c "set packpath^=$DIR" -c "PackInstall" -es
+vim -N -u "$DIR"/vimrc/plugins.vim -c "set packpath^=$DIR" -c "PackInstall"
 echo "Update helptags .."
-vim -N -u "$DIR"/vimrc/plugins.vim -c "silent! helptags ALL" -c "quit" -es
+vim -N -u "$DIR"/vimrc/plugins.vim -c "silent! helptags ALL" -c "quit!"
 
 exit 0
 

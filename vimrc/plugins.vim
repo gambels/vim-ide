@@ -9,36 +9,42 @@
 function! PackInit() abort
   packadd minpac
 
-  " Initialize minpac and load all "start" plugins automatically
-  call minpac#init({'verbose': '3'})
+  if exists('*minpac#init')
+    " Initialize minpac and load all "start" plugins automatically
+    call minpac#init({'verbose': '3'})
 
-  " Register plugins for install/update/clean
-  call minpac#add('k-takata/minpac', {'type': 'opt'})
+    " Register plugins for install/update/clean
+    call minpac#add('k-takata/minpac', {'type': 'opt'})
 
-  " A tree explorer plugin for vim.
-  call minpac#add('scrooloose/nerdtree')
-  " Syntax checking hacks for vim.
-  call minpac#add('scrooloose/syntastic')
-  " A command-line fuzzy finder
-  call minpac#add('junegunn/fzf',{'do': 'call fzf#install()'})
-  " lean & mean status/tabline for vim that's light as air
-  call minpac#add('vim-airline/vim-airline')
-  call minpac#add('vim-airline/vim-airline-themes')
-  " Pairs of handy bracket mappings
-  call minpac#add('tpope/vim-unimpaired')
-  " Asynchronous build and test dispatcher
-  call minpac#add('tpope/vim-dispatch')
-  " Comment stuff out
-  call minpac#add('tpope/vim-commentary')
-  " A Git wrapper so awesome, it should be illegal
-  call minpac#add('tpope/vim-fugitive')
-  " A class outline viewer for Vim
-  call minpac#add('majutsushi/tagbar')
-  " A code-completion engine for Vim
-  " call minpac#add('ycm-core/YouCompleteMe',{'do': {-> system('./install.py --clangd-completer')}})
-  " Cosmetics
-  call minpac#add('vim-scripts/Wombat')
-  call minpac#add('vim-scripts/wombat256.vim')
+    " A tree explorer plugin for vim.
+    call minpac#add('scrooloose/nerdtree')
+    " Syntax checking hacks for vim.
+    call minpac#add('scrooloose/syntastic')
+    " A command-line fuzzy finder
+    call minpac#add('junegunn/fzf',{'do': 'call fzf#install()'})
+    " lean & mean status/tabline for vim that's light as air
+    call minpac#add('vim-airline/vim-airline')
+    call minpac#add('vim-airline/vim-airline-themes')
+    " Pairs of handy bracket mappings
+    call minpac#add('tpope/vim-unimpaired')
+    " Asynchronous build and test dispatcher
+    call minpac#add('tpope/vim-dispatch')
+    " Comment stuff out
+    call minpac#add('tpope/vim-commentary')
+    " A Git wrapper so awesome, it should be illegal
+    call minpac#add('tpope/vim-fugitive')
+    " A class outline viewer for Vim
+    call minpac#add('majutsushi/tagbar')
+    " A code-completion engine for Vim
+    " call minpac#add('ycm-core/YouCompleteMe',{'do': {-> system('./install.py --clangd-completer')}})
+    " Cosmetics
+    call minpac#add('vim-scripts/Wombat')
+    call minpac#add('vim-scripts/wombat256.vim')
+  else
+    echoerr "minpac is not available"
+    cq
+  endif
+
 endfunction
 
 " =============================================================================
