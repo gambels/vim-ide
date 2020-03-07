@@ -85,11 +85,7 @@ nnoremap <C-p> :<C-u>FZF<CR>
 " =============================================================================
 " Section: vim-airline
 " =============================================================================
-if !exists('g:airline_symbols')
-  let g:airline_symbols_ascii = 1
-else
-  let g:airline_powerline_fonts = 0
-endif
+let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme='wombat'
 let g:airline#extensions#tabline#formatter = 'unique_tail'
