@@ -13,9 +13,8 @@ function! PackInit() abort
     " Initialize minpac and load all "start" plugins automatically
     call minpac#init({'verbose': '3'})
 
-    " Register plugins for install/update/clean
+    " Minimal package manager
     call minpac#add('k-takata/minpac', {'type': 'opt'})
-
     " A tree explorer plugin for vim.
     call minpac#add('scrooloose/nerdtree')
     " Syntax checking hacks for vim.
