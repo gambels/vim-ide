@@ -12,7 +12,7 @@ VIMRC=$(cat << EOF
 " =============================================================================
 
 " Using $DIR instead of vimfiles
-set packpath=$DIR
+set packpath^=$DIR
 
 " No vi-compatible
 set nocompatible
@@ -59,9 +59,9 @@ for USER in $USERS; do
 done
 
 echo "Update plugins .."
-vim -N -u "$DIR"/vimrc/plugins.vim -c "call minpac#update('', {'do': 'quit'})" -es
+vim -N -u "$DIR"/vimrc/plugins.vim -c "set packpath^=$DIR" -c "PackInstall"
 echo "Update helptags .."
-vim -N -u "$DIR"/vimrc/plugins.vim -c "silent! helptags ALL" -c "quit" -es
+vim -N -u "$DIR"/vimrc/plugins.vim -c "silent! helptags ALL" -c "quit!"
 
 exit 0
 

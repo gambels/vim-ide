@@ -6,34 +6,54 @@
 " =============================================================================
 " Section: Minimal package manager
 " =============================================================================
+function! PackInit() abort
+  packadd minpac
 
-" Load minpac
-packadd minpac
+  if exists('*minpac#init')
+    " Initialize minpac and load all "start" plugins automatically
+    call minpac#init({'verbose': '3'})
 
-" Initialize minpac and load all "start" plugins automatically
-call minpac#init()
+    " Minimal package manager
+    call minpac#add('k-takata/minpac', {'type': 'opt'})
+    " A tree explorer plugin for vim.
+    call minpac#add('scrooloose/nerdtree')
+    " Syntax checking hacks for vim.
+    call minpac#add('scrooloose/syntastic')
+    " A command-line fuzzy finder
+    call minpac#add('junegunn/fzf',{'do': 'call fzf#install()'})
+    " lean & mean status/tabline for vim that's light as air
+    call minpac#add('vim-airline/vim-airline')
+    call minpac#add('vim-airline/vim-airline-themes')
+    " Pairs of handy bracket mappings
+    call minpac#add('tpope/vim-unimpaired')
+    " Asynchronous build and test dispatcher
+    call minpac#add('tpope/vim-dispatch')
+    " Comment stuff out
+    call minpac#add('tpope/vim-commentary')
+    " A Git wrapper so awesome, it should be illegal
+    call minpac#add('tpope/vim-fugitive')
+    " A class outline viewer for Vim
+    call minpac#add('majutsushi/tagbar')
+    " A code-completion engine for Vim
+    " call minpac#add('ycm-core/YouCompleteMe',{'do': {-> system('./install.py --clangd-completer')}})
+    " Cosmetics
+    call minpac#add('vim-scripts/Wombat')
+    call minpac#add('vim-scripts/wombat256.vim')
+  else
+    echoerr "minpac is not available"
+    cq
+  endif
 
-" Register plugins for install/update/clean
-call minpac#add('k-takata/minpac', {'type': 'opt'})
-call minpac#add('scrooloose/nerdtree')
-call minpac#add('scrooloose/syntastic')
-call minpac#add('junegunn/fzf')
-call minpac#add('itchyny/lightline.vim')
-call minpac#add('vim-scripts/Wombat')
-call minpac#add('vim-scripts/wombat256.vim')
-call minpac#add('tpope/vim-unimpaired')
-call minpac#add('tpope/vim-dispatch')
-call minpac#add('tpope/vim-commentary')
-call minpac#add('majutsushi/tagbar')
-
+endfunction
 
 " =============================================================================
 " Section: k-takata/minpac
 " =============================================================================
-"
 " Define minpac user commands
-command! PackUpdate call minpac#update()
-command! PackClean call minpac#clean()
+command! PackUpdate  call PackInit() | call minpac#update('', {'do': 'call minpac#status()'})
+command! PackClean   call PackInit() | call minpac#clean()
+command! PackStatus  call PackInit() | call minpac#status()
+command! PackInstall call PackInit() | call minpac#update('', {'do': 'quit'})
 
 " =============================================================================
 " Section: scrooloose/nerdtree
@@ -52,8 +72,8 @@ let NERDTreeShowHidden = 1
 
 " let g:syntastic_always_populate_loc_list = 1
 " let g:syntastic_auto_loc_list = 1
-" let g:syntastic_check_on_open = 1
-" let g:syntastic_check_on_wq = 0
+let g:syntastic_check_on_open =0
+let g:syntastic_check_on_wq = 0
 
 " =============================================================================
 " Section: junegunn/fzf
@@ -62,27 +82,10 @@ let NERDTreeShowHidden = 1
 nnoremap <C-p> :<C-u>FZF<CR>
 
 " =============================================================================
-" Section: ligthline
+" Section: vim-airline
 " =============================================================================
-
-let g:lightline = { 
-      \ 'colorscheme': 'wombat',
-      \ 'active': {
-      \   'left': [ ['mode', 'paste'],
-      \             ['fugitive', 'readonly', 'filename', 'modified'] ],
-      \   'right': [ [ 'lineinfo' ], ['percent'] ]
-      \ },
-      \ 'component': {
-      \   'readonly': '%{&filetype=="help"?"":&readonly?"[ro]":""}',
-      \   'modified': '%{&filetype=="help"?"":&modified?"+":&modifiable?"":"-"}',
-      \   'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}'
-      \ },
-      \ 'component_visible_condition': {
-      \   'readonly': '(&filetype!="help"&& &readonly)',
-      \   'modified': '(&filetype!="help"&&(&modified||!&modifiable))',
-      \   'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())'
-      \ },
-      \ 'separator': { 'left': ' ', 'right': ' ' },
-      \ 'subseparator': { 'left': ' ', 'right': ' ' }
-      \ }
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme='wombat'
+let g:airline#extensions#tabline#formatter = 'unique_tail'
 
