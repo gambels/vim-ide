@@ -36,7 +36,7 @@ function! PackInit() abort
     " A class outline viewer for Vim
     call minpac#add('majutsushi/tagbar')
     " A code-completion engine for Vim
-    " call minpac#add('ycm-core/YouCompleteMe',{'do': {-> system('./install.py --clangd-completer')}})
+    call minpac#add('ycm-core/YouCompleteMe',{'do': {-> system('./install.py --clangd-completer')}})
     " Cosmetics
     call minpac#add('vim-scripts/Wombat')
     call minpac#add('vim-scripts/wombat256.vim')
