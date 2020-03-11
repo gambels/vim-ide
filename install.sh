@@ -23,6 +23,7 @@ set nocompatible
 let vimrc_misc    = 1
 let vimrc_keymap  = 1
 let vimrc_plugins = 1
+let vimrc_manpager= 1
 
 " =============================================================================
 " Section: Load vimrc
@@ -37,6 +38,10 @@ endif
 
 if 1 == vimrc_plugins
   so $DIR/vimrc/plugins.vim
+endif
+
+if 1 == vimrc_manpager
+  set rtp+=$DIR/after
 endif
 EOF
 )
