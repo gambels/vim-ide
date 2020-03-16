@@ -78,6 +78,13 @@ endif
 set backupdir=~/.vim/backup
 set backup
 
+" Set undo directory
+if !isdirectory("~/.vim/undo")
+  silent !mkdir -p ~/.vim/undo
+endif
+set undodir=~/.vim/undo
+set undofile
+
 " =============================================================================
 " Section: Configure folding
 " =============================================================================
@@ -193,5 +200,4 @@ if has("autocmd")
 
     autocmd BufWritePre *.txt,*.js,*.py,*.wiki,*.sh,*.md,*.cpp,*.h,*.hpp,*.c,*.mk,*.vim :call TrimWhiteSpace()
 endif
-
 

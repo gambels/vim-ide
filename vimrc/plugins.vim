@@ -6,11 +6,12 @@
 " =============================================================================
 " Section: Minimal package manager
 " =============================================================================
+
 function! PackInit() abort
   packadd minpac
 
   if exists('*minpac#init')
-    " Initialize minpac and load all "start" plugins automatically
+    " Initialize minpac
     call minpac#init({'verbose': '3'})
 
     " Minimal package manager
@@ -35,7 +36,7 @@ function! PackInit() abort
     " A class outline viewer for Vim
     call minpac#add('majutsushi/tagbar')
     " A code-completion engine for Vim
-    " call minpac#add('ycm-core/YouCompleteMe',{'do': {-> system('./install.py --clangd-completer')}})
+    call minpac#add('ycm-core/YouCompleteMe',{'do': {-> system('./install.py --clangd-completer')}})
     " Cosmetics
     call minpac#add('vim-scripts/Wombat')
     call minpac#add('vim-scripts/wombat256.vim')
@@ -49,6 +50,7 @@ endfunction
 " =============================================================================
 " Section: k-takata/minpac
 " =============================================================================
+
 " Define minpac user commands
 command! PackUpdate  call PackInit() | call minpac#update('', {'do': 'call minpac#status()'})
 command! PackClean   call PackInit() | call minpac#clean()
@@ -60,7 +62,11 @@ command! PackInstall call PackInit() | call minpac#update('', {'do': 'quit'})
 " =============================================================================
 
 let NERDChristmasTree = 1
-let NERDTreeShowHidden = 1
+let NERDTreeShowHidden = 0
+
+" NERDTree (better file browser) toggle
+map <F3> :NERDTreeToggle<CR>
+map <leader># :NERDTreeFind<CR>
 
 " =============================================================================
 " Section: scrooloose/syntastic
@@ -75,6 +81,11 @@ let NERDTreeShowHidden = 1
 let g:syntastic_check_on_open =0
 let g:syntastic_check_on_wq = 0
 
+" Syntastic Check the syntax of the buffer
+map <leader>sc <ESC>:SyntasticCheck<CR>:Errors<CR>
+imap <leader>sc <ESC>:SyntasticCheck<CR>:Errors<CR>i
+map <leader>sr <ESC>:SyntasticReset<CR>
+
 " =============================================================================
 " Section: junegunn/fzf
 " =============================================================================
@@ -82,8 +93,30 @@ let g:syntastic_check_on_wq = 0
 nnoremap <C-p> :<C-u>FZF<CR>
 
 " =============================================================================
+" Section: majutsushi/tagbar
+" =============================================================================
+
+" Set autofocus on Tagbar open
+"let g:tagbar_autofocus = 1
+
+" Tagbar toogle
+map <F4> :TagbarToggle<CR>
+
+" =============================================================================
+" Section: ycm-core/YouCompleteMe
+" =============================================================================
+
+let g:ycm_complete_in_comments = 0
+let g:ycm_complete_in_strings = 0
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_autoclose_preview_window_after_insertion = 1
+
+nnoremap <leader>jd :YcmCompleter GoTo<CR>
+
+" =============================================================================
 " Section: vim-airline
 " =============================================================================
+
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme='wombat'
