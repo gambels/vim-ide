@@ -35,7 +35,7 @@ function! PackInit() abort
     " A class outline viewer for Vim
     call minpac#add('majutsushi/tagbar')
     " A code-completion engine for Vim
-    " call minpac#add('ycm-core/YouCompleteMe',{'do': {-> system('./install.py --clangd-completer')}})
+    call minpac#add('ycm-core/YouCompleteMe',{'do': {-> system('./install.py --clangd-completer')}})
     " Cosmetics
     call minpac#add('vim-scripts/Wombat')
     call minpac#add('vim-scripts/wombat256.vim')
@@ -58,9 +58,12 @@ command! PackInstall call PackInit() | call minpac#update('', {'do': 'quit'})
 " =============================================================================
 " Section: scrooloose/nerdtree
 " =============================================================================
-
 let NERDChristmasTree = 1
-let NERDTreeShowHidden = 1
+let NERDTreeShowHidden = 0
+
+" NERDTree (better file browser) toggle
+map <F3> :NERDTreeToggle<CR>
+map <leader># :NERDTreeFind<CR>
 
 " =============================================================================
 " Section: scrooloose/syntastic
@@ -75,11 +78,24 @@ let NERDTreeShowHidden = 1
 let g:syntastic_check_on_open =0
 let g:syntastic_check_on_wq = 0
 
+" Syntastic Check the syntax of the buffer
+map <leader>sc <ESC>:SyntasticCheck<CR>:Errors<CR>
+imap <leader>sc <ESC>:SyntasticCheck<CR>:Errors<CR>i
+map <leader>sr <ESC>:SyntasticReset<CR>
+
 " =============================================================================
 " Section: junegunn/fzf
 " =============================================================================
-
 nnoremap <C-p> :<C-u>FZF<CR>
+
+" =============================================================================
+" Section: ycm-core/YouCompleteMe
+" =============================================================================
+let g:ycm_complete_in_comments = 0
+let g:ycm_complete_in_strings = 0
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_autoclose_preview_window_after_insertion = 1
+nnoremap <leader>jd :YcmCompleter GoTo<CR>
 
 " =============================================================================
 " Section: vim-airline
