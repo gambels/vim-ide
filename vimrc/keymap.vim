@@ -149,10 +149,6 @@ cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 " =============================================================================
 " Section: Plugin related mappings
 " =============================================================================
-" toggle Tagbar display
-map <F4> :TagbarToggle<CR>
-" autofocus on Tagbar open
-" let g:tagbar_autofocus = 1
 
 " Keymap for vdebug
 let g:vdebug_keymap = {

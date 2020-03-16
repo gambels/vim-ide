@@ -84,8 +84,6 @@ if !isdirectory("~/.vim/undo")
 endif
 set undodir=~/.vim/undo
 set undofile
-set undolevels=1000
-set undoreload=10000
 
 " =============================================================================
 " Section: Configure folding
@@ -202,5 +200,4 @@ if has("autocmd")
 
     autocmd BufWritePre *.txt,*.js,*.py,*.wiki,*.sh,*.md,*.cpp,*.h,*.hpp,*.c,*.mk,*.vim :call TrimWhiteSpace()
 endif
-
 
