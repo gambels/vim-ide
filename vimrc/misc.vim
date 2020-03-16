@@ -78,6 +78,15 @@ endif
 set backupdir=~/.vim/backup
 set backup
 
+" Set undo directory
+if !isdirectory("~/.vim/undo")
+  silent !mkdir -p ~/.vim/undo
+endif
+set undodir=~/.vim/undo
+set undofile
+set undolevels=1000
+set undoreload=10000
+
 " =============================================================================
 " Section: Configure folding
 " =============================================================================

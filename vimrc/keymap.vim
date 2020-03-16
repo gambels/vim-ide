@@ -55,11 +55,6 @@ imap <leader>tw <ESC>:call TrimWhiteSpace()<CR><CR>i
 " Escape visual selection
 map <leader>es <ESC>:s/\%V"/\\"/g<CR>:s/\%V'/\\'/g<CR>
 
-" Check the syntax of the buffer
-map <leader>sc <ESC>:SyntasticCheck<CR>:Errors<CR>
-imap <leader>sc <ESC>:SyntasticCheck<CR>:Errors<CR>i
-map <leader>sr <ESC>:SyntasticReset<CR>
-
 " Move Lines / Selections
 nnoremap <C-j> :m .+1<CR>==
 nnoremap <C-k> :m .-2<CR>==
@@ -158,10 +153,6 @@ cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 map <F4> :TagbarToggle<CR>
 " autofocus on Tagbar open
 " let g:tagbar_autofocus = 1
-
-" NERDTree (better file browser) toggle
-map <F3> :NERDTreeToggle<CR>
-map <leader># :NERDTreeFind<CR>
 
 " Keymap for vdebug
 let g:vdebug_keymap = {
