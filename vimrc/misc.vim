@@ -161,8 +161,8 @@ set list listchars=tab:»·,trail:·,eol:$
 
 " Max Line-Width Highlighting (Vim >= 7.3)
 if version >= 703
-    set colorcolumn=120
-    hi ColorColumn ctermbg=233 guibg=#1A1A1A
+  set colorcolumn=120
+  hi ColorColumn ctermbg=233 guibg=#1A1A1A
 endif
 
 " Change cursor shape in different modes - Konsole
@@ -178,26 +178,4 @@ set mouse=a
 " Suffixes that get lower priority when doing tab completion for filenames.
 " These are files we are not likely to want to edit or read.
 set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc
-
-" Delete trailing white space on save, useful for some filetypes ;)
-function! TrimWhiteSpace()
-    let save_cursor = getpos(".")
-    let old_query = getreg('/')
-    silent! %s/\s\+$//e
-    call setpos('.', save_cursor)
-    call setreg('/', old_query)
-endfun
-
-" Only do this part when compiled with support for autocommands.
-if has("autocmd")
-  " When editing a file, always jump to the last known cursor position.
-  " Don't do it when the position is invalid or when inside an event handler
-  " (happens when dropping a file on gvim).
-    autocmd BufReadPost *
-        \ if line("'\"") > 0 && line("'\"") <= line("$") |
-        \   exe "normal g`\"" |
-        \ endif
-
-    autocmd BufWritePre *.txt,*.js,*.py,*.wiki,*.sh,*.md,*.cpp,*.h,*.hpp,*.c,*.mk,*.vim :call TrimWhiteSpace()
-endif
 

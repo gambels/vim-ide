@@ -3,6 +3,7 @@
 " Descritpion: Keymap configuration
 " =============================================================================
 
+" Set mapleader variable for <Leader>
 let mapleader=","
 
 " Make backspace work like most other apps
@@ -33,6 +34,10 @@ nmap <silent> <A-Right> :wincmd l<CR>
 noremap <leader>- :split<CR>
 noremap <leader>\| :vsplit<CR>
 
+" =============================================================================
+" Section: Formatting
+" =============================================================================
+
 " To UTF8/Unix
 nmap <leader>su :setlocal ff=unix<CR>:set fileencoding=utf8<CR>:w<CR>
 
@@ -47,10 +52,6 @@ imap <F6> <ESC>>i}<CR>i
 " Indent In
 map <F5> <i}<CR>
 imap <F5> <ESC><i}<CR>i
-
-" Strip trailing whitespaces
-map <leader>tw <ESC>:call TrimWhiteSpace()<CR><CR>
-imap <leader>tw <ESC>:call TrimWhiteSpace()<CR><CR>i
 
 " Escape visual selection
 map <leader>es <ESC>:s/\%V"/\\"/g<CR>:s/\%V'/\\'/g<CR>

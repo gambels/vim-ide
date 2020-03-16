@@ -23,9 +23,10 @@ set nocompatible
 " =============================================================================
 " Section: Configure vimrc
 " =============================================================================
-let vimrc_misc    = 1
-let vimrc_keymap  = 1
-let vimrc_plugins = 1
+let vimrc_misc      = 1
+let vimrc_keymap    = 1
+let vimrc_functions = 1
+let vimrc_plugins   = 1
 
 " =============================================================================
 " Section: Load vimrc
@@ -36,6 +37,10 @@ endif
 
 if 1 == vimrc_keymap
   so $DIR/vimrc/keymap.vim
+endif
+
+if 1 == vimrc_functions
+  so $DIR/vimrc/functions.vim
 endif
 
 if 1 == vimrc_plugins
