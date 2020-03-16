@@ -131,13 +131,12 @@ if &term =~? 'mlterm\|xterm\|screen-256'
 else
   colorscheme wombat
 endif
+set background=dark
 
 if has('gui_running')
-  set background=light
   set t_Co=256
   set guitablabel=%M\ %t
 else
-  set background=dark
   " Only display filename for tab caption
   set guitablabel=%t
 endif

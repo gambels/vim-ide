@@ -11,8 +11,11 @@ VIMRC=$(cat << EOF
 " Description: Main vim run command script
 " =============================================================================
 
-" Using $DIR instead of vimfiles
+" Using $DIR to find packages
 set packpath^=$DIR
+
+" Using $DIR as home "after" directory
+set runtimepath+=$DIR/after
 
 " No vi-compatible
 set nocompatible
@@ -38,6 +41,7 @@ endif
 if 1 == vimrc_plugins
   so $DIR/vimrc/plugins.vim
 endif
+
 EOF
 )
 
