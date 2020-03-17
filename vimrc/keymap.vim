@@ -10,6 +10,22 @@ let mapleader=","
 set backspace=indent,eol,start
 
 " =============================================================================
+" Section: Toggle views
+" =============================================================================
+
+" Help toggle
+map <F1> :call HelpToggle()<CR>
+
+" NERDTree toggle
+map <F7> :NERDTreeToggle<CR>
+
+" Tagbar toogle
+map <F8> :TagbarToggle<CR>
+
+" QuickFix toggle
+map <F9> :call QuickFixToggle()<CR>
+
+" =============================================================================
 " Section: Tab navigation
 " =============================================================================
 
@@ -26,13 +42,19 @@ map <C-W> <ESC>:confirm bdelete<CR>
 " Section: Window navigation
 " =============================================================================
 
+" Select window with Alt- Up/Down/Let/Right
 nmap <silent> <A-Up> :wincmd k<CR>
 nmap <silent> <A-Down> :wincmd j<CR>
 nmap <silent> <A-Left> :wincmd h<CR>
 nmap <silent> <A-Right> :wincmd l<CR>
 
-noremap <leader>- :split<CR>
-noremap <leader>\| :vsplit<CR>
+" Split window with Leader - and |
+noremap <silent> <leader>- :split<CR>
+noremap <silent> <leader>\| :vsplit<CR>
+
+" Zoom window with Alt-F11
+nnoremap <silent> <A-F11> :call WindowZoomToggle()<CR>
+imap <silent> <A-F11> <C-O><A-F11>
 
 " =============================================================================
 " Section: Formatting
@@ -55,6 +77,9 @@ imap <F5> <ESC><i}<CR>i
 
 " Escape visual selection
 map <leader>es <ESC>:s/\%V"/\\"/g<CR>:s/\%V'/\\'/g<CR>
+
+" Strip trailing white spaces
+nnoremap <silent> <leader>tws :call TrimWhiteSpace()<CR>
 
 " Move Lines / Selections
 nnoremap <C-j> :m .+1<CR>==
