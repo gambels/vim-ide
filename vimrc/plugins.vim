@@ -102,10 +102,9 @@ let g:ycm_complete_in_comments = 0
 let g:ycm_complete_in_strings = 0
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
-let g:ycm_key_list_select_completion = ['<TAB>', '<Down>', '<Enter>']
 
 nnoremap <F3> :YcmCompleter GoTo<CR>
-nnoremap <F4> :YcmCompleter GoToReference<CR>
+nnoremap <F4> :YcmCompleter GoToReferences<CR>
 nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
 
 " =============================================================================
