@@ -11,8 +11,11 @@ VIMRC=$(cat << EOF
 " Description: Main vim run command script
 " =============================================================================
 
-" Using $DIR instead of vimfiles
+" Using $DIR to find packages
 set packpath^=$DIR
+
+" Using $DIR as home "after" directory
+set runtimepath+=$DIR/after
 
 " No vi-compatible
 set nocompatible
@@ -20,10 +23,10 @@ set nocompatible
 " =============================================================================
 " Section: Configure vimrc
 " =============================================================================
-let vimrc_misc    = 1
-let vimrc_keymap  = 1
-let vimrc_plugins = 1
-let vimrc_manpager= 1
+let vimrc_misc      = 1
+let vimrc_keymap    = 1
+let vimrc_functions = 1
+let vimrc_plugins   = 1
 
 " =============================================================================
 " Section: Load vimrc
@@ -36,13 +39,14 @@ if 1 == vimrc_keymap
   so $DIR/vimrc/keymap.vim
 endif
 
+if 1 == vimrc_functions
+  so $DIR/vimrc/functions.vim
+endif
+
 if 1 == vimrc_plugins
   so $DIR/vimrc/plugins.vim
 endif
 
-if 1 == vimrc_manpager
-  set rtp+=$DIR/after
-endif
 EOF
 )
 
