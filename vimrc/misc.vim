@@ -105,6 +105,9 @@ set foldlevel=1
 " Section: Configure visual style
 " =============================================================================
 
+" Set bell of at all
+set belloff=all
+
 " Set line numbers
 set nu
 
