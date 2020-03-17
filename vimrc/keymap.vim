@@ -139,11 +139,6 @@ map <leader>ds :setlocal spell spelllang=<CR>
 " inoremap { {}<Left>
 " inoremap <expr> } strpart(getline('.'), col('.')-1, 1) == "}" ? "\<Right>" : "}"
 
-" (s)trip (w)hite(s)paces
-vmap <leader>sws <ESC>:'<,'>s/\%V //g<CR><CR>
-" (S)trip (w)hite(s)paces from the first word of a line to the end
-map <leader>Sws <ESC>0wv$:s/\%V //g<CR><CR>
-
 " Open tag under cursor in new tab
 " map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 " nnoremap <C-LeftMouse> <LeftMouse>:tab split<CR>:exec("tag ".expand("<cword>"))<CR>:CloseDupTabs<CR>:NERDTreeFind<CR>:NERDTreeFocusToggle<CR>
