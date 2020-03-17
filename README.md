@@ -1,6 +1,6 @@
 # vim-ide
 
-# Install vim-ide
+## Install vim-ide
 ```bash
 git clone --recurse-submodules https://github.com/nuccleon/vim-ide.git
 ```
@@ -20,14 +20,21 @@ git clone --recurse-submodules https://github.com/nuccleon/vim-ide.git
 ./vim-ide/install.sh --all
 ```
 
-# Install/Update plugins
+## Plugin Manager
+
+### Install Plugins
 ```vim
 :PackUpdate
 :helptags ALL
 ```
 
-# Clean plugins
+### Clean Plugins
 ```vim
 :PackClean
 ```
+
+## Links
+
+* https://devhints.io/vimscript
+* https://learnvimscriptthehardway.stevelosh.com
 
