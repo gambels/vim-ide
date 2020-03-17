@@ -65,8 +65,9 @@ let NERDChristmasTree = 1
 let NERDTreeShowHidden = 0
 
 " NERDTree (better file browser) toggle
-map <F3> :NERDTreeToggle<CR>
-map <leader># :NERDTreeFind<CR>
+map <leader>nn :NERDTreeToggle<CR>
+map <leader>nb :NERDTreeFromBookmark<CR>
+map <leader>nf :NERDTreeFind<CR>
 
 " =============================================================================
 " Section: scrooloose/syntastic
@@ -100,18 +101,20 @@ nnoremap <C-p> :<C-u>FZF<CR>
 "let g:tagbar_autofocus = 1
 
 " Tagbar toogle
-map <F4> :TagbarToggle<CR>
+map <leader>mm :TagbarToggle<CR>
 
 " =============================================================================
 " Section: ycm-core/YouCompleteMe
 " =============================================================================
-
 let g:ycm_complete_in_comments = 0
 let g:ycm_complete_in_strings = 0
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_key_list_select_completion = ['<TAB>', '<Down>', '<Enter>']
 
-nnoremap <leader>jd :YcmCompleter GoTo<CR>
+nnoremap <F3> :YcmCompleter GoTo<CR>
+nnoremap <F4> :YcmCompleter GoToReference<CR>
+nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
 
 " =============================================================================
 " Section: vim-airline

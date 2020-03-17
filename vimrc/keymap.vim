@@ -46,12 +46,12 @@ vmap <Tab> >
 vmap <S-Tab> <
 
 " Indent Out
-map <F6> >i}<CR>
-imap <F6> <ESC>>i}<CR>i
+" map <F6> >i}<CR>
+" imap <F6> <ESC>>i}<CR>i
 
 " Indent In
-map <F5> <i}<CR>
-imap <F5> <ESC><i}<CR>i
+" map <F5> <i}<CR>
+" imap <F5> <ESC><i}<CR>i
 
 " Escape visual selection
 map <leader>es <ESC>:s/\%V"/\\"/g<CR>:s/\%V'/\\'/g<CR>
