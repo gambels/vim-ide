@@ -64,11 +64,6 @@ command! PackInstall call PackInit() | call minpac#update('', {'do': 'quit'})
 let NERDChristmasTree = 1
 let NERDTreeShowHidden = 0
 
-" NERDTree (better file browser) toggle
-map <leader>nn :NERDTreeToggle<CR>
-map <leader>nb :NERDTreeFromBookmark<CR>
-map <leader>nf :NERDTreeFind<CR>
-
 " =============================================================================
 " Section: scrooloose/syntastic
 " =============================================================================
@@ -99,9 +94,6 @@ nnoremap <C-p> :<C-u>FZF<CR>
 
 " Set autofocus on Tagbar open
 "let g:tagbar_autofocus = 1
-
-" Tagbar toogle
-map <leader>mm :TagbarToggle<CR>
 
 " =============================================================================
 " Section: ycm-core/YouCompleteMe
