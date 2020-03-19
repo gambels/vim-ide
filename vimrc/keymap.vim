@@ -61,6 +61,14 @@ inoremap <C-q> <ESC>:confirm qa<CR>i
 "nnoremap <S-F2> :set invpaste paste?<CR>
 "set pastetoggle=<S-F2>
 
+" Fast saving
+nmap <leader>w :w!<cr>
+
+" :W sudo saves the file
+" (useful for handling the permission-denied error)
+" command! W execute 'w !sudo tee % > /dev/null' <bar> edit!
+command W w !sudo tee "%" > /dev/null
+
 " =============================================================================
 " Section: Tab navigation
 " =============================================================================
@@ -94,6 +102,17 @@ noremap <silent> <leader>\| :vsplit<CR>
 " Zoom window with Alt-F11
 nnoremap <silent> <A-F11> :call WindowZoomToggle()<CR>
 inoremap <silent> <A-F11> <C-O><A-F11>
+
+" =============================================================================
+" Section: Source navigation
+" =============================================================================
+
+nnoremap <F3> :YcmCompleter GoTo<CR>
+nnoremap <F4> :YcmCompleter GoToReferences<CR>
+nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
+
+" look for files under current directory
+nnoremap <C-p> :<C-u>FZF<CR>
 
 " =============================================================================
 " Section: Formatting
@@ -138,20 +157,13 @@ map <leader>ed :setlocal spell spelllang=de<CR>
 map <leader>ds :setlocal spell spelllang=<CR>
 
 " =============================================================================
-" Section: Saving settings
-" =============================================================================
-
-" Fast saving
-nmap <leader>w :w!<cr>
-
-" :W sudo saves the file
-" (useful for handling the permission-denied error)
-" command! W execute 'w !sudo tee % > /dev/null' <bar> edit!
-command W w !sudo tee "%" > /dev/null
-
-" =============================================================================
 " Section: Debugging
 " =============================================================================
+
+" Syntastic Check the syntax of the buffer
+map <leader>sc <ESC>:SyntasticCheck<CR>:Errors<CR>
+imap <leader>sc <ESC>:SyntasticCheck<CR>:Errors<CR>i
+map <leader>sr <ESC>:SyntasticReset<CR>
 
 " Keymap for vdebug
 let g:vdebug_keymap = {

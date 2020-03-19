@@ -77,16 +77,9 @@ let NERDTreeShowHidden = 0
 let g:syntastic_check_on_open =0
 let g:syntastic_check_on_wq = 0
 
-" Syntastic Check the syntax of the buffer
-map <leader>sc <ESC>:SyntasticCheck<CR>:Errors<CR>
-imap <leader>sc <ESC>:SyntasticCheck<CR>:Errors<CR>i
-map <leader>sr <ESC>:SyntasticReset<CR>
-
 " =============================================================================
 " Section: junegunn/fzf
 " =============================================================================
-
-nnoremap <C-p> :<C-u>FZF<CR>
 
 " =============================================================================
 " Section: majutsushi/tagbar
@@ -102,10 +95,6 @@ let g:ycm_complete_in_comments = 0
 let g:ycm_complete_in_strings = 0
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
-
-nnoremap <F3> :YcmCompleter GoTo<CR>
-nnoremap <F4> :YcmCompleter GoToReferences<CR>
-nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
 
 " =============================================================================
 " Section: vim-airline
