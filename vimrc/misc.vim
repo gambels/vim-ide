@@ -11,6 +11,10 @@ filetype indent on
 set autoread
 au FocusGained,BufEnter * checktime
 
+" Do not timeout on mappings
+set notimeout
+set ttimeout
+
 " =============================================================================
 " Section: Configure shell
 " =============================================================================
@@ -23,27 +27,31 @@ let $PATH=system('echo $PATH')
 " Section: Configure tabs and space handling
 " =============================================================================
 
-" Use spaces instead of tabs
+" Use spaces instead of tabs, but be smart
 set expandtab
-
-" Be smart when using tabs
 set smarttab
 
 " 1 tab == 2 spaces
 set tabstop=2
 set softtabstop=2
-set shiftwidth=2
 
-" Linebreak on 120 characters
-set linebreak
-set textwidth=120
+" Number of spaces used of (auto)indent
+set shiftwidth=2
+set shiftround
 
 " Copy indent from current line when starting a new line, but be smart
 set autoindent
 set smartindent
 
+" Linebreak on 120 characters
+set linebreak
+set textwidth=120
+
 " Wrap lines when longer than window width
 set wrap
+
+" Make backspace work like most other apps
+set backspace=indent,eol,start
 
 " =============================================================================
 " Section: Configure search
