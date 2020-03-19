@@ -23,6 +23,10 @@ set nocompatible
 " =============================================================================
 " Section: Configure vimrc
 " =============================================================================
+
+" Using $DIR to find vimrc files
+let \$MYVIMRCPATH = "$DIR/vimrc"
+
 let vimrc_misc      = 1
 let vimrc_keymap    = 1
 let vimrc_functions = 1
@@ -31,6 +35,7 @@ let vimrc_plugins   = 1
 " =============================================================================
 " Section: Load vimrc
 " =============================================================================
+
 if 1 == vimrc_misc
   so $DIR/vimrc/misc.vim
 endif
