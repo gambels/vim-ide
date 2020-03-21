@@ -16,7 +16,7 @@ noremap <leader>sk :source $MYVIMRCPATH/keymap.vim<CR>
 " =============================================================================
 
 " Help toggle
-nnoremap <F1> :call HelpToggle()<CR>
+nnoremap <F1> :HelpToggle<CR>
 
 " NERDTree toggle
 nnoremap <F7> :NERDTreeToggle<CR>
@@ -25,7 +25,7 @@ nnoremap <F7> :NERDTreeToggle<CR>
 nnoremap <F8> :TagbarToggle<CR>
 
 " QuickFix toggle
-nnoremap <F9> :call QuickFixToggle()<CR>
+nnoremap <F9> :QuickFixToggle<CR>
 
 " Show tab list
 "noremap <F2> <ESC>tl<CR>
@@ -39,10 +39,12 @@ nnoremap <F9> :call QuickFixToggle()<CR>
 
 " Quick save
 noremap <C-s> <ESC>:w<CR>
+noremap <leader>w :w!<CR>
 inoremap <C-s> <ESC>:w<CR>i
 
 " Quick exit
 noremap <C-q> <ESC>:confirm qa<CR>
+noremap <leader>q :confirm qa<CR>
 inoremap <C-q> <ESC>:confirm qa<CR>i
 
 " Quick copy to [register +]
@@ -96,6 +98,17 @@ nnoremap <silent> <A-F11> :call WindowZoomToggle()<CR>
 inoremap <silent> <A-F11> <C-O><A-F11>
 
 " =============================================================================
+" Section: Source navigation
+" =============================================================================
+
+nnoremap <F3> :YcmCompleter GoTo<CR>
+nnoremap <F4> :YcmCompleter GoToReferences<CR>
+nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
+
+" Look for files under current directory
+nnoremap <C-p> :<C-u>FZF<CR>
+
+" =============================================================================
 " Section: Formatting
 " =============================================================================
 
@@ -107,12 +120,12 @@ vmap <Tab> >
 vmap <S-Tab> <
 
 " Indent Out
-map <F6> >i}<CR>
-imap <F6> <ESC>>i}<CR>i
+" map <F6> >i}<CR>
+" imap <F6> <ESC>>i}<CR>i
 
 " Indent In
-map <F5> <i}<CR>
-imap <F5> <ESC><i}<CR>i
+" map <F5> <i}<CR>
+" imap <F5> <ESC><i}<CR>i
 
 " Strip trailing white spaces
 nnoremap <silent> <leader>tws :call TrimWhiteSpace()<CR>
@@ -140,6 +153,11 @@ map <leader>ds :setlocal spell spelllang=<CR>
 " =============================================================================
 " Section: Debugging
 " =============================================================================
+
+" Syntastic Check the syntax of the buffer
+map <leader>sc <ESC>:SyntasticCheck<CR>:Errors<CR>
+imap <leader>sc <ESC>:SyntasticCheck<CR>:Errors<CR>i
+map <leader>sr <ESC>:SyntasticReset<CR>
 
 " Keymap for vdebug
 let g:vdebug_keymap = {
