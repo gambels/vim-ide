@@ -1,6 +1,6 @@
 " =============================================================================
 " File:  functions.vim
-" Description: Function definition
+" Description: Function and command definition
 " =============================================================================
 
 " Delete trailing white spaces
@@ -56,6 +56,19 @@ function! QuickFixToggle()
       let t:quickfix_is_open = 1
   endif
 endfunction
+
+" =============================================================================
+" Section: Configure commands
+" =============================================================================
+
+" Toggle commands
+command HelpToggle call HelpToggle()
+command QuickFixToggle call QuickFixToggle()
+
+" :W sudo saves the file
+" (useful for handling the permission-denied error)
+" command! W execute 'w !sudo tee % > /dev/null' <bar> edit!
+command! W w !sudo tee "%" > /dev/null
 
 " =============================================================================
 " Section: Configure auto commands
