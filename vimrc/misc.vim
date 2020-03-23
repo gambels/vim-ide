@@ -3,7 +3,7 @@
 " Description: Misc configuration
 " =============================================================================
 
-" Allow plugins by file type
+" Allow plugins and indention by file type
 filetype plugin on
 filetype indent on
 
