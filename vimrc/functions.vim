@@ -1,6 +1,6 @@
 " =============================================================================
-" File:  functions.vim
-" Description: Function and command definition
+" File: functions.vim
+" Description: Function definition
 " =============================================================================
 
 " Delete trailing white spaces
@@ -56,35 +56,4 @@ function! QuickFixToggle()
       let t:quickfix_is_open = 1
   endif
 endfunction
-
-" =============================================================================
-" Section: Configure commands
-" =============================================================================
-
-" Toggle commands
-command HelpToggle call HelpToggle()
-command QuickFixToggle call QuickFixToggle()
-
-" :W sudo saves the file
-" (useful for handling the permission-denied error)
-" command! W execute 'w !sudo tee % > /dev/null' <bar> edit!
-command! W w !sudo tee "%" > /dev/null
-
-" =============================================================================
-" Section: Configure auto commands
-" =============================================================================
-
-" Only do this part when compiled with support for autocommands.
-if has("autocmd")
-  autocmd BufWritePre     * :call TrimWhiteSpace()
-  "autocmd BufWritePre *.txt,*.js,*.py,*.wiki,*.sh,*.md,*.cpp,*.h,*.hpp,*.c,*.mk,*.vim :call TrimWhiteSpace()
-
-  " When editing a file, always jump to the last known cursor position.
-  " Don't do it when the position is invalid or when inside an event handler
-  " (happens when dropping a file on gvim).
-  autocmd BufReadPost *
-    \ if line("'\"") > 0 && line("'\"") <= line("$") |
-    \   exe "normal g`\"" |
-    \ endif
-endif
 
