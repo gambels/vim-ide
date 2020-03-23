@@ -51,11 +51,6 @@ endfunction
 " Section: k-takata/minpac
 " =============================================================================
 
-" Define minpac user commands
-command! PackUpdate  call PackInit() | call minpac#update('', {'do': 'call minpac#status()'})
-command! PackClean   call PackInit() | call minpac#clean()
-command! PackStatus  call PackInit() | call minpac#status()
-command! PackInstall call PackInit() | call minpac#update('', {'do': 'quit'})
 
 " =============================================================================
 " Section: scrooloose/nerdtree
@@ -68,12 +63,12 @@ let NERDTreeShowHidden = 0
 " Section: scrooloose/syntastic
 " =============================================================================
 
-" set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
-" set statusline+=%*
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
 
-" let g:syntastic_always_populate_loc_list = 1
-" let g:syntastic_auto_loc_list = 1
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open =0
 let g:syntastic_check_on_wq = 0
 
