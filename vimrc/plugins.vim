@@ -37,7 +37,6 @@ function! PackInit() abort
     call minpac#add('majutsushi/tagbar')
     " A code-completion engine for Vim
     call minpac#add('ycm-core/YouCompleteMe',{'do': {-> system('./install.py --clangd-completer')}})
-    call minpac#add('octol/vim-cpp-enhanced-highlight')
     " Cosmetics
     call minpac#add('vim-scripts/Wombat')
     call minpac#add('vim-scripts/wombat256.vim')
@@ -96,13 +95,6 @@ let g:ycm_complete_in_comments = 0
 let g:ycm_complete_in_strings = 0
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
-
-" =============================================================================
-" Section: octol/vim-cpp-enhanced-highlight
-" =============================================================================
-let g:cpp_class_scope_highlight = 1
-let g:cpp_member_variable_hightlight = 1
-let g:cpp_class_decl_hightlight = 1
 
 " =============================================================================
 " Section: vim-airline
