@@ -31,6 +31,7 @@ let vimrc_misc      = 1
 let vimrc_keymap    = 1
 let vimrc_functions = 1
 let vimrc_commands  = 1
+let vimrc_filetypes = 1
 let vimrc_plugins   = 1
 
 " =============================================================================
@@ -51,6 +52,10 @@ endif
 
 if 1 == vimrc_commands
   so $DIR/vimrc/commands.vim
+endif
+
+if 1 == vimrc_filetypes
+  so $DIR/vimrc/filetypes.vim
 endif
 
 if 1 == vimrc_plugins
