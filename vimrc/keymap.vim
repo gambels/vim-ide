@@ -1,4 +1,4 @@
-" =============================================================================
+
 " File: keymap.vim
 " Descritpion: Keymap configuration
 " =============================================================================
@@ -69,6 +69,7 @@ nmap <leader>w :w!<cr>
 " command! W execute 'w !sudo tee % > /dev/null' <bar> edit!
 command W w !sudo tee "%" > /dev/null
 
+
 " =============================================================================
 " Section: Tab navigation
 " =============================================================================
@@ -80,7 +81,7 @@ nnoremap tt :tabnew<CR>
 nnoremap to :tabonly!<CR>
 
 nnoremap <C-T> :tabnew<CR>
-nnoremap <C-W> :confirm bdelete<CR>
+nnoremap <C-W> :confirm bdelete<CR>:tabclose<CR>gT
 
 " Open tag under cursor in new tab
 "noremap <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
@@ -90,6 +91,7 @@ nnoremap <C-W> :confirm bdelete<CR>
 " =============================================================================
 nnoremap <leader>n :bnext<CR>
 nnoremap <leader>p :bprevious<CR>
+nnoremap <leader>c :confirm bdelete<CR>:tabclose<CR>gT
 
 nmap <leader>1 <Plug>AirlineSelectTab1
 nmap <leader>2 <Plug>AirlineSelectTab2
@@ -129,6 +131,8 @@ nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
 
 " look for files under current directory
 nnoremap <C-p> :<C-u>FZF<CR>
+" prevent opening FZF search result in NERD Tree
+nnoremap <silent> <expr> <C-p> (expand('%') =~ 'NERD_tree' ? "\<c-w>\<c-w>" : "").":FZF\<CR>"
 
 " =============================================================================
 " Section: Formatting
