@@ -1,5 +1,5 @@
 " =============================================================================
-" File:  functions.vim
+" File: functions.vim
 " Description: Function definition
 " =============================================================================
 
@@ -56,24 +56,4 @@ function! QuickFixToggle()
       let t:quickfix_is_open = 1
   endif
 endfunction
-
-" =============================================================================
-" Section: Configure auto commands
-" =============================================================================
-
-" Only do this part when compiled with support for autocommands.
-if has("autocmd")
-  autocmd BufWritePre     * :call TrimWhiteSpace()
-  "autocmd BufWritePre *.txt,*.js,*.py,*.wiki,*.sh,*.md,*.cpp,*.h,*.hpp,*.c,*.mk,*.vim :call TrimWhiteSpace()
-
-  " When editing a file, always jump to the last known cursor position.
-  " Don't do it when the position is invalid or when inside an event handler
-  " (happens when dropping a file on gvim).
-  autocmd BufReadPost *
-    \ if line("'\"") > 0 && line("'\"") <= line("$") |
-    \   exe "normal g`\"" |
-    \ endif
-
-  autocmd! BufWritePost $MYVIMRCPATH/*.vim source ~/.vimrc
-endif
 

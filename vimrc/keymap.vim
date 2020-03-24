@@ -8,15 +8,15 @@ let mapleader=","
 let maplocalleader=","
 
 " Edit and source keymap file
-noremap <leader>ek :split $MYVIMRCPATH/keymap.vim<CR>
-noremap <leader>sk :source $MYVIMRCPATH/keymap.vim<CR>
+noremap <Leader>ek :split $MYVIMRCPATH/keymap.vim<CR>
+noremap <Leader>sk :source $MYVIMRCPATH/keymap.vim<CR>
 
 " =============================================================================
 " Section: Toggle views
 " =============================================================================
 
 " Help toggle
-nnoremap <F1> :call HelpToggle()<CR>
+nnoremap <F1> :HelpToggle<CR>
 
 " NERDTree toggle
 nnoremap <F7> :NERDTreeToggle<CR>
@@ -25,13 +25,13 @@ nnoremap <F7> :NERDTreeToggle<CR>
 nnoremap <F8> :TagbarToggle<CR>
 
 " QuickFix toggle
-nnoremap <F9> :call QuickFixToggle()<CR>
+nnoremap <F9> :QuickFixToggle<CR>
 
 " Show tab list
 "noremap <F2> <ESC>tl<CR>
 
 " Show pending tasks list
-"map <F2> <ESC>:TaskList<CR>
+"noremap <F2> <ESC>:TaskList<CR>
 
 " =============================================================================
 " Section: Editor quikies
@@ -39,10 +39,12 @@ nnoremap <F9> :call QuickFixToggle()<CR>
 
 " Quick save
 noremap <C-s> <ESC>:w<CR>
+noremap <Leader>w :w!<CR>
 inoremap <C-s> <ESC>:w<CR>i
 
 " Quick exit
 noremap <C-q> <ESC>:confirm qa<CR>
+noremap <Leader>q :confirm qa<CR>
 inoremap <C-q> <ESC>:confirm qa<CR>i
 
 " Quick copy to [register +]
@@ -61,15 +63,6 @@ inoremap <C-q> <ESC>:confirm qa<CR>i
 "nnoremap <S-F2> :set invpaste paste?<CR>
 "set pastetoggle=<S-F2>
 
-" Fast saving
-nmap <leader>w :w!<cr>
-
-" :W sudo saves the file
-" (useful for handling the permission-denied error)
-" command! W execute 'w !sudo tee % > /dev/null' <bar> edit!
-command W w !sudo tee "%" > /dev/null
-
-
 " =============================================================================
 " Section: Tab navigation
 " =============================================================================
@@ -80,8 +73,8 @@ nnoremap tm :tabm<CR>
 nnoremap tt :tabnew<CR>
 nnoremap to :tabonly!<CR>
 
-nnoremap <C-T> :tabnew<CR>
-nnoremap <C-W> :confirm bdelete<CR>:tabclose<CR>gT
+nnoremap <C-t> :tabnew<CR>
+nnoremap <C-w> :confirm bdelete<CR>:tabclose<CR>gT
 
 " Open tag under cursor in new tab
 "noremap <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
@@ -114,8 +107,8 @@ nnoremap <silent> <A-Left> :wincmd h<CR>
 nnoremap <silent> <A-Right> :wincmd l<CR>
 
 " Split window with Leader - and |
-noremap <silent> <leader>- :split<CR>
-noremap <silent> <leader>\| :vsplit<CR>
+noremap <silent> <Leader>- :split<CR>
+noremap <silent> <Leader>\| :vsplit<CR>
 
 " Zoom window with Alt-F11
 nnoremap <silent> <A-F11> :call WindowZoomToggle()<CR>
@@ -129,7 +122,7 @@ nnoremap <F3> :YcmCompleter GoTo<CR>
 nnoremap <F4> :YcmCompleter GoToReferences<CR>
 nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
 
-" look for files under current directory
+" Look for files under current directory
 nnoremap <C-p> :<C-u>FZF<CR>
 " prevent opening FZF search result in NERD Tree
 nnoremap <silent> <expr> <C-p> (expand('%') =~ 'NERD_tree' ? "\<c-w>\<c-w>" : "").":FZF\<CR>"
@@ -139,31 +132,31 @@ nnoremap <silent> <expr> <C-p> (expand('%') =~ 'NERD_tree' ? "\<c-w>\<c-w>" : ""
 " =============================================================================
 
 " To UTF8/Unix
-nmap <leader>su :setlocal ff=unix<CR>:set fileencoding=utf8<CR>:w<CR>
+nnoremap <Leader>su :setlocal ff=unix<CR>:set fileencoding=utf8<CR>:w<CR>
 
 " ReFormat the Document
-vmap <Tab> >
-vmap <S-Tab> <
+vnoremap <Tab> >
+vnoremap <S-Tab> <
 
 " Indent Out
-" map <F6> >i}<CR>
-" imap <F6> <ESC>>i}<CR>i
+"noremap <F6> >i}<CR>
+"inoremap <F6> <ESC>>i}<CR>i
 
 " Indent In
-" map <F5> <i}<CR>
-" imap <F5> <ESC><i}<CR>i
+"noremap <F5> <i}<CR>
+"inoremap <F5> <ESC><i}<CR>i
 
 " Strip trailing white spaces
-nnoremap <silent> <leader>tws :call TrimWhiteSpace()<CR>
+nnoremap <silent> <Leader>tws :call TrimWhiteSpace()<CR>
 
 " Search and replace selection on Ctrl+r
-vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
+vnoremap <C-r> "hy:%s/<C-r>h//gc<Left><Left><Left>
 
 " Move Lines / Selections
 nnoremap <C-Down> :m .+1<CR>==
 nnoremap <C-Up> :m .-2<CR>==
-inoremap <C-Down> <Esc>:m .+1<CR>==gi
-inoremap <C-Up> <Esc>:m .-2<CR>==gi
+inoremap <C-Down> <ESC>:m .+1<CR>==gi
+inoremap <C-Up> <ESC>:m .-2<CR>==gi
 vnoremap <C-Down> :m '>+1<CR>gv=gv
 vnoremap <C-Up> :m '<-2<CR>gv=gv
 
@@ -171,19 +164,19 @@ vnoremap <C-Up> :m '<-2<CR>gv=gv
 " Section: Spell checking
 " =============================================================================
 
-" Enable/Disable spellchecking
-map <leader>ee :setlocal spell spelllang=en<CR>
-map <leader>ed :setlocal spell spelllang=de<CR>
-map <leader>ds :setlocal spell spelllang=<CR>
+" Enable/Disable spell checking
+noremap <Leader>ee :setlocal spell spelllang=en<CR>
+noremap <Leader>ed :setlocal spell spelllang=de<CR>
+noremap <Leader>ds :setlocal spell spelllang=<CR>
 
 " =============================================================================
 " Section: Debugging
 " =============================================================================
 
 " Syntastic Check the syntax of the buffer
-map <leader>sc <ESC>:SyntasticCheck<CR>:Errors<CR>
-imap <leader>sc <ESC>:SyntasticCheck<CR>:Errors<CR>i
-map <leader>sr <ESC>:SyntasticReset<CR>
+noremap <Leader>sc <ESC>:SyntasticCheck<CR>:Errors<CR>
+inoremap <Leader>sc <ESC>:SyntasticCheck<CR>:Errors<CR>i
+noremap <Leader>sr <ESC>:SyntasticReset<CR>
 
 " Keymap for vdebug
 let g:vdebug_keymap = {
