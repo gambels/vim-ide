@@ -102,9 +102,13 @@ nmap <Leader>9 <Plug>AirlineSelectTab9
 
 " Select window with Alt- Up/Down/Let/Right
 nnoremap <silent> <A-Up> :wincmd k<CR>
+inoremap <silent> <A-Up> <ESC> :wincmd k<CR>i
 nnoremap <silent> <A-Down> :wincmd j<CR>
+inoremap <silent> <A-Down> <ESC> :wincmd j<CR>i
 nnoremap <silent> <A-Left> :wincmd h<CR>
+inoremap <silent> <A-Left> <ESC> :wincmd h<CR>i
 nnoremap <silent> <A-Right> :wincmd l<CR>
+inoremap <silent> <A-Right> <ESC> :wincmd l<CR>i
 
 " Split window with Leader - and |
 noremap <silent> <Leader>- :split<CR>
