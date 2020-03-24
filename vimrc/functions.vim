@@ -73,5 +73,7 @@ if has("autocmd")
     \ if line("'\"") > 0 && line("'\"") <= line("$") |
     \   exe "normal g`\"" |
     \ endif
+
+  autocmd! BufWritePost $MYVIMRCPATH/*.vim source ~/.vimrc
 endif
 
