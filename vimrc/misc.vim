@@ -134,6 +134,9 @@ set noshowmode
 " Always show tabline
 set showtabline=2
 
+" Always show signcolumn
+set signcolumn=yes
+
 " Set utf8 as standard encoding
 set encoding=utf8
 
