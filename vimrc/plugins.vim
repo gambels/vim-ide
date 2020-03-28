@@ -37,6 +37,8 @@ function! PackInit() abort
     call minpac#add('majutsushi/tagbar')
     " A code-completion engine for Vim
     call minpac#add('ycm-core/YouCompleteMe',{'do': {-> system('./install.py --clangd-completer')}})
+    " Vim plugin for clang-format, a formatter for C, C++, Obj-C, Java, JavaScript, TypeScript and ProtoBuf.
+    call minpac#add('rhysd/vim-clang-format')
     " Cosmetics
     call minpac#add('vim-scripts/Wombat')
     call minpac#add('vim-scripts/wombat256.vim')
@@ -97,6 +99,18 @@ let g:ycm_max_num_candidates = 10
 let g:ycm_max_num_identifiers_candidates = 10
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
+
+" =============================================================================
+" Section: rhysd/vim-clang-format
+" =============================================================================
+let g:clang_format#code_style = "llvm"
+let g:clang_format#style_options = {
+      \ "BreakBeforeBraces" : "Allman",
+      \ "IndentWidth" : 2,
+      \ "UseTab" : "Never",
+      \ "ColumnLimit" : 120,
+      \ "CompactNamespaces" : "true",
+      \ "BreakConstructorInitializers" : "BeforeComma" }
 
 " =============================================================================
 " Section: vim-airline
