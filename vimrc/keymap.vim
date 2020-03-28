@@ -125,6 +125,8 @@ inoremap <silent> <A-F11> <C-O><A-F11>
 nnoremap <F3> :YcmCompleter GoTo<CR>
 nnoremap <F4> :YcmCompleter GoToReferences<CR>
 nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
+nnoremap <Leader>gt :YcmCompleter GetType<CR>
+nnoremap <Leader>gd :YcmCompleter GetDoc<CR>
 
 " Look for files under current directory
 nnoremap <C-p> :<C-u>FZF<CR>
