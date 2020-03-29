@@ -103,14 +103,26 @@ let g:ycm_autoclose_preview_window_after_insertion = 1
 " =============================================================================
 " Section: rhysd/vim-clang-format
 " =============================================================================
-let g:clang_format#code_style = "llvm"
+" automatically detect .clang-format / _clang-format in project's root
+let g:clang_format#detect_style_file = 1
+" automatically format buffer on save
+let g:clang_format#quto_format = 1
+" If autodetect of .clang-format / _clang-romat failes, use that settings
+let g:clang_format#code_style = "microsoft"
 let g:clang_format#style_options = {
-      \ "BreakBeforeBraces" : "Allman",
-      \ "IndentWidth" : 2,
-      \ "UseTab" : "Never",
-      \ "ColumnLimit" : 120,
+      \ "AllowShortBlocksOnASingleLine" : "true",
+      \ "AllowShortCaseLabelsOnASingleLine" : "true",
+      \ "BraceWrapping" : {
+      \     "AfterCaseLabel" : "true",
+      \     "AfterUnion" : "true" },
+      \ "BreakInheritanceList" : "BeforeComma",
+      \ "BreakConstructorInitializers" : "BeforeComma",
       \ "CompactNamespaces" : "true",
-      \ "BreakConstructorInitializers" : "BeforeComma" }
+      \ "ConstructorInitializerIndentWidth" : 2,
+      \ "ContinuationIndentWidth" : 2,
+      \ "IndentCaseLabels" : "true",
+      \ "IndentWidth" : 2,
+      \ "TabWidth" : 2 }
 
 " =============================================================================
 " Section: vim-airline
