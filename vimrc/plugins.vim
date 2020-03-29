@@ -116,8 +116,12 @@ let g:clang_format#style_options = {
       \ "BraceWrapping" : {
       \     "AfterCaseLabel" : "true",
       \     "AfterUnion" : "true" },
+      \ "PointerAlignment" : "Left",
       \ "BreakInheritanceList" : "BeforeComma",
       \ "BreakConstructorInitializers" : "BeforeComma",
+      \ "SplitEmptyFunction" : "false",
+      \ "SplitEmptyRecord" : "false",
+      \ "SplitEmptyNamespace" : "false",
       \ "CompactNamespaces" : "true",
       \ "IndentCaseLabels" : "true",
       \ "NamespaceIndentation" : "All",
