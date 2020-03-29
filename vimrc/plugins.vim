@@ -112,15 +112,17 @@ let g:clang_format#code_style = "microsoft"
 let g:clang_format#style_options = {
       \ "AllowShortBlocksOnASingleLine" : "true",
       \ "AllowShortCaseLabelsOnASingleLine" : "true",
+      \ "AllowShortFunctionsOnASingleLine" : "true",
       \ "BraceWrapping" : {
       \     "AfterCaseLabel" : "true",
       \     "AfterUnion" : "true" },
       \ "BreakInheritanceList" : "BeforeComma",
       \ "BreakConstructorInitializers" : "BeforeComma",
       \ "CompactNamespaces" : "true",
+      \ "IndentCaseLabels" : "true",
+      \ "NamespaceIndentation" : "All",
       \ "ConstructorInitializerIndentWidth" : 2,
       \ "ContinuationIndentWidth" : 2,
-      \ "IndentCaseLabels" : "true",
       \ "IndentWidth" : 2,
       \ "TabWidth" : 2 }
 
