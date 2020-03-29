@@ -106,7 +106,7 @@ let g:ycm_autoclose_preview_window_after_insertion = 1
 " automatically detect .clang-format / _clang-format in project's root
 let g:clang_format#detect_style_file = 1
 " automatically format buffer on save
-let g:clang_format#quto_format = 1
+let g:clang_format#auto_format = 1
 " If autodetect of .clang-format / _clang-romat failes, use that settings
 let g:clang_format#code_style = "microsoft"
 let g:clang_format#style_options = {
