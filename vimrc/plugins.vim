@@ -37,6 +37,8 @@ function! PackInit() abort
     call minpac#add('majutsushi/tagbar')
     " A code-completion engine for Vim
     call minpac#add('ycm-core/YouCompleteMe',{'do': {-> system('./install.py --clangd-completer')}})
+    " Vim plugin for clang-format, a formatter for C, C++, Obj-C, Java, JavaScript, TypeScript and ProtoBuf.
+    call minpac#add('rhysd/vim-clang-format')
     " Cosmetics
     call minpac#add('vim-scripts/Wombat')
     call minpac#add('vim-scripts/wombat256.vim')
@@ -92,16 +94,49 @@ let g:syntastic_check_on_wq = 0
 " Section: ycm-core/YouCompleteMe
 " =============================================================================
 let g:ycm_complete_in_comments = 0
-let g:ycm_complete_in_strings = 0
+let g:ycm_complete_in_strings = 1
+let g:ycm_max_num_candidates = 10
+let g:ycm_max_num_identifiers_candidates = 10
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
+
+" =============================================================================
+" Section: rhysd/vim-clang-format
+" =============================================================================
+" automatically detect .clang-format / _clang-format in project's root
+let g:clang_format#detect_style_file = 1
+" automatically format buffer on save
+let g:clang_format#auto_format = 1
+" If autodetect of .clang-format / _clang-romat failes, use that settings
+let g:clang_format#code_style = "microsoft"
+let g:clang_format#style_options = {
+      \ "AllowShortBlocksOnASingleLine" : "true",
+      \ "AllowShortCaseLabelsOnASingleLine" : "true",
+      \ "AllowShortFunctionsOnASingleLine" : "true",
+      \ "BraceWrapping" : {
+      \     "AfterCaseLabel" : "true",
+      \     "AfterUnion" : "true" },
+      \ "PointerAlignment" : "Left",
+      \ "BreakInheritanceList" : "BeforeComma",
+      \ "BreakConstructorInitializers" : "BeforeComma",
+      \ "SplitEmptyFunction" : "false",
+      \ "SplitEmptyRecord" : "false",
+      \ "SplitEmptyNamespace" : "false",
+      \ "CompactNamespaces" : "true",
+      \ "IndentCaseLabels" : "true",
+      \ "NamespaceIndentation" : "All",
+      \ "ConstructorInitializerIndentWidth" : 2,
+      \ "ContinuationIndentWidth" : 2,
+      \ "IndentWidth" : 2,
+      \ "TabWidth" : 2 }
 
 " =============================================================================
 " Section: vim-airline
 " =============================================================================
 
 let g:airline_powerline_fonts = 1
-let g:airline_theme = 'wombat'
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#buffer_idx_mode = 1
+let g:airline_theme='wombat'
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 

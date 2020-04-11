@@ -10,4 +10,4 @@ command QuickFixToggle call QuickFixToggle()
 " :W sudo saves the file
 " (useful for handling the permission-denied error)
 " command! W execute 'w !sudo tee % > /dev/null' <bar> edit!
-"command! W w !sudo tee "%" > /dev/null
+command! W w !sudo tee "%" > /dev/null

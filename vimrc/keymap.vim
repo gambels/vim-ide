@@ -1,4 +1,4 @@
-" =============================================================================
+
 " File: keymap.vim
 " Descritpion: Keymap configuration
 " =============================================================================
@@ -74,10 +74,27 @@ nnoremap tt :tabnew<CR>
 nnoremap to :tabonly!<CR>
 
 nnoremap <C-t> :tabnew<CR>
-nnoremap <C-w> :confirm bdelete<CR>
+nnoremap <C-w> :confirm bdelete<CR>:tabclose<CR>gT
 
 " Open tag under cursor in new tab
 "noremap <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
+
+" =============================================================================
+" Section: Buffer navigation
+" =============================================================================
+nnoremap <Leader>n :bnext<CR>
+nnoremap <Leader>p :bprevious<CR>
+nnoremap <Leader>c :confirm bdelete<CR>:tabclose<CR>gT
+
+nmap <Leader>1 <Plug>AirlineSelectTab1
+nmap <Leader>2 <Plug>AirlineSelectTab2
+nmap <Leader>3 <Plug>AirlineSelectTab3
+nmap <Leader>4 <Plug>AirlineSelectTab4
+nmap <Leader>5 <Plug>AirlineSelectTab5
+nmap <Leader>6 <Plug>AirlineSelectTab6
+nmap <Leader>7 <Plug>AirlineSelectTab7
+nmap <Leader>8 <Plug>AirlineSelectTab8
+nmap <Leader>9 <Plug>AirlineSelectTab9
 
 " =============================================================================
 " Section: Window navigation
@@ -85,9 +102,13 @@ nnoremap <C-w> :confirm bdelete<CR>
 
 " Select window with Alt- Up/Down/Let/Right
 nnoremap <silent> <A-Up> :wincmd k<CR>
+inoremap <silent> <A-Up> <ESC> :wincmd k<CR>i
 nnoremap <silent> <A-Down> :wincmd j<CR>
+inoremap <silent> <A-Down> <ESC> :wincmd j<CR>i
 nnoremap <silent> <A-Left> :wincmd h<CR>
+inoremap <silent> <A-Left> <ESC> :wincmd h<CR>i
 nnoremap <silent> <A-Right> :wincmd l<CR>
+inoremap <silent> <A-Right> <ESC> :wincmd l<CR>i
 
 " Split window with Leader - and |
 noremap <silent> <Leader>- :split<CR>
@@ -104,9 +125,13 @@ inoremap <silent> <A-F11> <C-O><A-F11>
 nnoremap <F3> :YcmCompleter GoTo<CR>
 nnoremap <F4> :YcmCompleter GoToReferences<CR>
 nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
+nnoremap <Leader>gt :YcmCompleter GetType<CR>
+nnoremap <Leader>gd :YcmCompleter GetDoc<CR>
 
 " Look for files under current directory
 nnoremap <C-p> :<C-u>FZF<CR>
+" prevent opening FZF search result in NERD Tree
+nnoremap <silent> <expr> <C-p> (expand('%') =~ 'NERD_tree' ? "\<c-w>\<c-w>" : "").":FZF\<CR>"
 
 " =============================================================================
 " Section: Formatting

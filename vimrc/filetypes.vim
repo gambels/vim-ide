@@ -17,6 +17,9 @@ augroup filetype_generic
     \ if line("'\"") > 0 && line("'\"") <= line("$") |
     \   exe "normal g`\"" |
     \ endif
+
+  " Re-source .vimrc on saving
+  autocmd! BufWritePost $MYVIMRCPATH/*.vim source ~/.vimrc
 augroup END
 
 augroup filetype_vim
