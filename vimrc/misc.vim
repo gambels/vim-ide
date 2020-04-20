@@ -74,23 +74,23 @@ set hlsearch
 " =============================================================================
 
 " Set swap directory
-if !isdirectory("~/.vim/swap")
-  silent !mkdir -p ~/.vim/swap
+if !isdirectory($HOME . "/.vim/swap")
+  call mkdir($HOME . "/.vim/swap", "p", 0700)
 endif
-set directory=~/.vim/swap
+set directory=$HOME/.vim/swap
 
 " Set backup directory
-if !isdirectory("~/.vim/backup")
-  silent !mkdir -p ~/.vim/backup
+if !isdirectory($HOME . "/.vim/backup")
+  call mkdir($HOME . "/.vim/backup", "p", 0700)
 endif
-set backupdir=~/.vim/backup
+set backupdir=$HOME/.vim/backup
 set backup
 
 " Set undo directory
-if !isdirectory("~/.vim/undo")
-  silent !mkdir -p ~/.vim/undo
+if !isdirectory($HOME . "/.vim/undo")
+  call mkdir($HOME . "/.vim/undo", "p", 0700)
 endif
-set undodir=~/.vim/undo
+set undodir=$HOME/.vim/undo
 set undofile
 
 " =============================================================================
