@@ -97,12 +97,12 @@ let g:syntastic_check_on_wq = 0
 " =============================================================================
 " Section: ycm-core/YouCompleteMe
 " =============================================================================
-" let g:ycm_complete_in_comments = 0
-" let g:ycm_complete_in_strings = 1
-" let g:ycm_max_num_candidates = 10
-" let g:ycm_max_num_identifiers_candidates = 10
-" let g:ycm_autoclose_preview_window_after_completion = 1
-" let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_complete_in_comments = 0
+let g:ycm_complete_in_strings = 1
+let g:ycm_max_num_candidates = 10
+let g:ycm_max_num_identifiers_candidates = 10
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_autoclose_preview_window_after_insertion = 1
 
 " =============================================================================
 " Section: rhysd/vim-clang-format
