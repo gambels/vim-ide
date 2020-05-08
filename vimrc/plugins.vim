@@ -36,8 +36,12 @@ function! PackInit() abort
     " A class outline viewer for Vim
     call minpac#add('majutsushi/tagbar')
     " A code-completion engine for Vim
-    call minpac#add('ycm-core/YouCompleteMe',{'do': {-> system('./install.py --clangd-completer')}})
-    " Vim plugin for clang-format, a formatter for C, C++, Obj-C, Java, JavaScript, TypeScript and ProtoBuf.
+    if has('python')
+      call minpac#add('ycm-core/YouCompleteMe',{'do': {-> system('./install.py --clangd-completer')}})
+    else
+      echomsg "YouCompleteMe needs vim compiled with python support"
+    endif
+      " Vim plugin for clang-format, a formatter for C, C++, Obj-C, Java, JavaScript, TypeScript and ProtoBuf.
     call minpac#add('rhysd/vim-clang-format')
     " Cosmetics
     call minpac#add('vim-scripts/Wombat')
@@ -93,12 +97,12 @@ let g:syntastic_check_on_wq = 0
 " =============================================================================
 " Section: ycm-core/YouCompleteMe
 " =============================================================================
-let g:ycm_complete_in_comments = 0
-let g:ycm_complete_in_strings = 1
-let g:ycm_max_num_candidates = 10
-let g:ycm_max_num_identifiers_candidates = 10
-let g:ycm_autoclose_preview_window_after_completion = 1
-let g:ycm_autoclose_preview_window_after_insertion = 1
+" let g:ycm_complete_in_comments = 0
+" let g:ycm_complete_in_strings = 1
+" let g:ycm_max_num_candidates = 10
+" let g:ycm_max_num_identifiers_candidates = 10
+" let g:ycm_autoclose_preview_window_after_completion = 1
+" let g:ycm_autoclose_preview_window_after_insertion = 1
 
 " =============================================================================
 " Section: rhysd/vim-clang-format
