@@ -36,10 +36,10 @@ function! PackInit() abort
     " A class outline viewer for Vim
     call minpac#add('majutsushi/tagbar')
     " A code-completion engine for Vim
-    if has('python')
+    if has('python3')
       call minpac#add('ycm-core/YouCompleteMe',{'do': {-> system('./install.py --clangd-completer')}})
     else
-      echomsg "YouCompleteMe needs vim compiled with python support"
+      " echomsg "YouCompleteMe needs vim compiled with python support"
     endif
       " Vim plugin for clang-format, a formatter for C, C++, Obj-C, Java, JavaScript, TypeScript and ProtoBuf.
     call minpac#add('rhysd/vim-clang-format')
