@@ -97,12 +97,15 @@ let g:syntastic_check_on_wq = 0
 " =============================================================================
 " Section: ycm-core/YouCompleteMe
 " =============================================================================
-let g:ycm_complete_in_comments = 0
+let g:ycm_complete_in_comments = 1
 let g:ycm_complete_in_strings = 1
 let g:ycm_max_num_candidates = 10
 let g:ycm_max_num_identifiers_candidates = 10
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
+" want to just turn off the identifier completer but keep the semantic trigger (. or ->) active
+let g:ycm_min_num_of_chars_for_completion = 99
+let g:ycm_key_list_stop_completion = ['<C-y>', '<Enter>']
 
 " =============================================================================
 " Section: rhysd/vim-clang-format
