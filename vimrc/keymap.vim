@@ -12,6 +12,26 @@ noremap <Leader>ek :split $MYVIMRCPATH/keymap.vim<CR>
 noremap <Leader>sk :source $MYVIMRCPATH/keymap.vim<CR>
 
 " =============================================================================
+" Section: Disable arrow keys for navigation
+" =============================================================================
+nnoremap <Left> :echo "No left for you!"<CR>
+vnoremap <Left> :<C-u>echo "No left for you!"<CR>
+inoremap <Left> <C-o>:echo "No left for you!"<CR>
+
+nnoremap <Right> :echo "No right for you!"<CR>
+vnoremap <Right> :<C-u>echo "No right for you!"<CR>
+inoremap <Right> <C-o>:echo "No right for you!"<CR>
+
+nnoremap <Up> :echo "No up for you!"<CR>
+vnoremap <Up> :<C-u>echo "No up for you!"<CR>
+inoremap <Up> <C-o>:echo "No up for you!"<CR>
+
+nnoremap <Down> :echo "No down for you!"<CR>
+vnoremap <Down> :<C-u>echo "No down for you!"<CR>
+inoremap <Down> <C-o>:echo "No down for you!"<CR>
+
+
+" =============================================================================
 " Section: Toggle views
 " =============================================================================
 
@@ -79,13 +99,6 @@ nnoremap <C-w> :confirm bdelete<CR>:tabclose<CR>gT
 " Open tag under cursor in new tab
 "noremap <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 
-" =============================================================================
-" Section: Buffer navigation
-" =============================================================================
-nnoremap <Leader>n :bnext<CR>
-nnoremap <Leader>p :bprevious<CR>
-nnoremap <Leader>c :confirm bdelete<CR>:tabclose<CR>gT
-
 nmap <Leader>1 <Plug>AirlineSelectTab1
 nmap <Leader>2 <Plug>AirlineSelectTab2
 nmap <Leader>3 <Plug>AirlineSelectTab3
@@ -97,10 +110,17 @@ nmap <Leader>8 <Plug>AirlineSelectTab8
 nmap <Leader>9 <Plug>AirlineSelectTab9
 
 " =============================================================================
+" Section: Buffer navigation
+" =============================================================================
+nnoremap <Leader>n :bnext<CR>
+nnoremap <Leader>p :bprevious<CR>
+nnoremap <Leader>c :confirm bdelete<CR>:tabclose<CR>gT
+
+" =============================================================================
 " Section: Window navigation
 " =============================================================================
 
-" Select window with Alt- Up/Down/Let/Right
+" Select window with Alt- Up/Down/Left/Right
 nnoremap <silent> <A-Up> :wincmd k<CR>
 inoremap <silent> <A-Up> <ESC> :wincmd k<CR>i
 nnoremap <silent> <A-Down> :wincmd j<CR>
