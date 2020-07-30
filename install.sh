@@ -29,6 +29,7 @@ let \$MYVIMRCPATH = "$DIR/vimrc"
 
 let vimrc_misc      = 1
 let vimrc_keymap    = 1
+let vimrc_hard_ass  = 1
 let vimrc_functions = 1
 let vimrc_commands  = 1
 let vimrc_filetypes = 1
@@ -44,6 +45,10 @@ endif
 
 if 1 == vimrc_keymap
   so $DIR/vimrc/keymap.vim
+endif
+
+if 1 == vimrc_hard_ass
+  so $DIR/vimrc/hard_ass.vim
 endif
 
 if 1 == vimrc_functions
