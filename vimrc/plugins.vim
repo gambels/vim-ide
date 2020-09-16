@@ -46,6 +46,8 @@ function! PackInit() abort
     " Cosmetics
     call minpac#add('vim-scripts/Wombat')
     call minpac#add('vim-scripts/wombat256.vim')
+    " Template
+    call minpac#add('gentoo/gentoo-syntax')
   else
     echoerr "minpac is not available"
     cq
