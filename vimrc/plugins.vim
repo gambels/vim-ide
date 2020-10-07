@@ -7,12 +7,12 @@
 " Section: Minimal package manager
 " =============================================================================
 
-function! PackInit() abort
+function! PackInit(verbose_level) abort
   packadd minpac
 
   if exists('*minpac#init')
     " Initialize minpac
-    call minpac#init({'verbose': '3'})
+    call minpac#init({'verbose': a:verbose_level, 'status_open': 'vertical'})
 
     " Minimal package manager
     call minpac#add('k-takata/minpac', {'type': 'opt'})
@@ -39,9 +39,9 @@ function! PackInit() abort
     if has('python3')
       call minpac#add('ycm-core/YouCompleteMe',{'do': {-> system('./install.py --clangd-completer')}})
     else
-      " echomsg "YouCompleteMe needs vim compiled with python support"
+      echomsg "YouCompleteMe needs vim compiled with python support"
     endif
-      " Vim plugin for clang-format, a formatter for C, C++, Obj-C, Java, JavaScript, TypeScript and ProtoBuf.
+    " Vim plugin for clang-format, a formatter for C, C++, Obj-C, Java, JavaScript, TypeScript and ProtoBuf.
     call minpac#add('rhysd/vim-clang-format')
     " Cosmetics
     call minpac#add('vim-scripts/Wombat')
@@ -60,10 +60,10 @@ endfunction
 " =============================================================================
 
 " Define minpac user commands
-command! PackUpdate  call PackInit() | call minpac#update('', {'do': 'call minpac#status()'})
-command! PackClean   call PackInit() | call minpac#clean()
-command! PackStatus  call PackInit() | call minpac#status()
-command! PackInstall call PackInit() | call minpac#update('', {'do': 'quit'})
+command! PackUpdate  call PackInit(3) | call minpac#update('', {'do': 'call minpac#status()'})
+command! PackClean   call PackInit(3) | call minpac#clean()
+command! PackStatus  call PackInit(3) | call minpac#status()
+command! PackInstall call PackInit(4) | call minpac#update('', {'do': 'quit'})
 
 " =============================================================================
 " Section: scrooloose/nerdtree
