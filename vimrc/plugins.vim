@@ -50,7 +50,7 @@ function! PackInit() abort
     call minpac#add('gentoo/gentoo-syntax')
   else
     echoerr "minpac is not available"
-    cq
+    cq 1
   endif
 
 endfunction
