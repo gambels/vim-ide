@@ -91,9 +91,10 @@ echo "Update plugins .."
 vim -N -u "$DIR"/vimrc/plugins.vim -c "set packpath^=$DIR" -c "PackInstall"
 if [ $? -ne 0 ]; then
   echo "PackInstall failed. Minpack installed? (see README.md)"
+  exit 1
 fi
 echo "Update helptags .."
-vim -N -u "$DIR"/vimrc/plugins.vim -c "silent! helptags ALL" -c "quit!"
+vim -N -u "$DIR"/vimrc/plugins.vim -c "silent! helptags ALL" -c "quitall!"
 
 exit 0
 

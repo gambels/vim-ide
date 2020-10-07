@@ -17,7 +17,7 @@ function! PackInit(verbose_level) abort
     cq 1
   else
     " Initialize minpac
-    call minpac#init({'verbose': a:verbose_level, 'status_open': 'vertical'})
+    call minpac#init({'verbose': a:verbose_level, 'status_auto': 'TRUE', 'progress_open': 'vertical', 'status_open': 'vertical'})
 
     " Minimal package manager
     call minpac#add('k-takata/minpac', {'type': 'opt'})
@@ -63,10 +63,10 @@ endfunction
 " =============================================================================
 
 " Define minpac user commands
-command! PackUpdate  call PackInit(3) | call minpac#update('', {'do': 'call minpac#status()'})
+command! PackUpdate  call PackInit(3) | call minpac#update()
 command! PackClean   call PackInit(3) | call minpac#clean()
 command! PackStatus  call PackInit(3) | call minpac#status()
-command! PackInstall call PackInit(4) | call minpac#update('', {'do': 'quit'})
+command! PackInstall call PackInit(4) | call minpac#update('', {'do': 'quitall!'})
 
 " =============================================================================
 " Section: scrooloose/nerdtree
