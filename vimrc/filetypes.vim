@@ -7,8 +7,8 @@ augroup filetype_generic
   autocmd!
 
   " Automatically remove all trailing spaces for all file types
-  autocmd BufWritePre     * :call TrimWhiteSpace()
-  "autocmd BufWritePre *.txt,*.js,*.py,*.wiki,*.sh,*.md,*.cpp,*.h,*.hpp,*.c,*.mk,*.vim :call TrimWhiteSpace()
+  " autocmd BufWritePre     * :call TrimWhiteSpace()
+  autocmd BufWritePre *.txt,*.js,*.py,*.wiki,*.sh,*.md,*.cpp,*.h,*.hpp,*.c,*.mk,*.vim :call TrimWhiteSpace()
 
   " When editing a file, always jump to the last known cursor position.
   " Don't do it when the position is invalid or when inside an event handler
