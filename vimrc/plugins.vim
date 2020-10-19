@@ -53,6 +53,7 @@ function! PackInit(verbose_level) abort
     call minpac#add('vim-scripts/wombat256.vim')
     " Template
     call minpac#add('gentoo/gentoo-syntax')
+    call minpac#add('kergoth/vim-bitbake')
 
   endif
 
