@@ -37,4 +37,5 @@ git clone --recurse-submodules https://github.com/beckenc/vim-ide.git
 
 * https://devhints.io/vimscript
 * https://learnvimscriptthehardway.stevelosh.com
+* https://docs.microsoft.com/de-de/windows/terminal/tutorials/powerline-setup
 
