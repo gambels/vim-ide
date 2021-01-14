@@ -153,6 +153,8 @@ else
   colorscheme wombat
 endif
 set background=dark
+" WSL workaround, google: VIM backround colors render incorrectly
+set t_ut=
 
 if has('gui_running')
   set t_Co=256
