@@ -54,10 +54,15 @@ function! PackInit(verbose_level) abort
     " Template
     call minpac#add('gentoo/gentoo-syntax')
     call minpac#add('kergoth/vim-bitbake')
-
+    call minpac#add('edkolev/tmuxline.vim')
   endif
 
 endfunction
+
+" =============================================================================
+" Section: edkolev/tmuxline.vim
+" =============================================================================
+let g:airline#extensions#tmuxline#enabled = 0
 
 " =============================================================================
 " Section: k-takata/minpac
@@ -92,6 +97,7 @@ let g:syntastic_check_on_wq = 0
 " =============================================================================
 " Section: junegunn/fzf
 " =============================================================================
+let g:fzf_layout = { 'down': '30%' }
 
 " =============================================================================
 " Section: majutsushi/tagbar
