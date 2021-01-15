@@ -25,8 +25,9 @@ function! PackInit(verbose_level) abort
     call minpac#add('scrooloose/nerdtree')
     " Syntax checking hacks for vim.
     call minpac#add('scrooloose/syntastic')
-    " A command-line fuzzy finder
-    call minpac#add('junegunn/fzf',{'do': { -> fzf#install()}})
+    " A command-line fuzzy finder (pickup fzf binary available on the system. If it is not found in $PATH,
+    " it will ask if it should download the latest binary
+    call minpac#add('junegunn/fzf')
     " lean & mean status/tabline for vim that's light as air
     call minpac#add('vim-airline/vim-airline')
     call minpac#add('vim-airline/vim-airline-themes')
@@ -69,7 +70,7 @@ let g:airline#extensions#tmuxline#enabled = 0
 " =============================================================================
 
 " Define minpac user commands
-command! PackUpdate  call PackInit(3) | call minpac#update()
+command! PackUpdate  call PackInit(4) | call minpac#update()
 command! PackClean   call PackInit(3) | call minpac#clean()
 command! PackStatus  call PackInit(3) | call minpac#status()
 command! PackInstall call PackInit(4) | call minpac#update('', {'do': 'quitall!'})
