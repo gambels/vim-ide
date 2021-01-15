@@ -129,9 +129,9 @@ nnoremap <Leader>gt :YcmCompleter GetType<CR>
 nnoremap <Leader>gd :YcmCompleter GetDoc<CR>
 
 " Look for files under current directory
-nnoremap <C-p> :<C-u>FZF<CR>
+nnoremap <C-t> :<C-u>FZF<CR>
 " prevent opening FZF search result in NERD Tree
-nnoremap <silent> <expr> <C-p> (expand('%') =~ 'NERD_tree' ? "\<c-w>\<c-w>" : "").":FZF\<CR>"
+nnoremap <silent> <expr> <C-t> (expand('%') =~ 'NERD_tree' ? "\<c-w>\<c-w>" : "").":FZF\<CR>"
 
 " =============================================================================
 " Section: Formatting
