@@ -73,7 +73,7 @@ nnoremap tm :tabm<CR>
 nnoremap tt :tabnew<CR>
 nnoremap to :tabonly!<CR>
 
-nnoremap <C-t> :tabnew<CR>
+"nnoremap <C-t> :tabnew<CR>
 nnoremap <C-w> :confirm bdelete<CR>:tabclose<CR>gT
 
 " Open tag under cursor in new tab

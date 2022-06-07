@@ -36,7 +36,7 @@ augroup END
 augroup filetype_cpp
   autocmd!
   autocmd FileType cpp setlocal shiftwidth=2 tabstop=2 softtabstop=2
-  autocmd FileType cpp setlocal filetype=cpp.doxygen
+  autocmd FileType cpp setlocal filetype=cpp
   autocmd FileType cpp setlocal spelllang=en
 augroup END
 
