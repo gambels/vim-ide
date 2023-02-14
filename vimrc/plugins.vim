@@ -10,7 +10,7 @@
 function! PackInit() abort
   packadd minpac
 
-  if exists('*minpac#init')
+  if exists('g:loaded_minpac')
     " Initialize minpac
     call minpac#init({'verbose': '3'})
 
@@ -18,19 +18,11 @@ function! PackInit() abort
     call minpac#add('k-takata/minpac', {'type': 'opt'})
     " A tree explorer plugin for vim.
     call minpac#add('scrooloose/nerdtree')
-    " Syntax checking hacks for vim.
-    call minpac#add('scrooloose/syntastic')
     " A command-line fuzzy finder
     call minpac#add('junegunn/fzf',{'do': 'call fzf#install()'})
     " lean & mean status/tabline for vim that's light as air
     call minpac#add('vim-airline/vim-airline')
     call minpac#add('vim-airline/vim-airline-themes')
-    " Pairs of handy bracket mappings
-    call minpac#add('tpope/vim-unimpaired')
-    " Asynchronous build and test dispatcher
-    call minpac#add('tpope/vim-dispatch')
-    " Comment stuff out
-    call minpac#add('tpope/vim-commentary')
     " A Git wrapper so awesome, it should be illegal
     call minpac#add('tpope/vim-fugitive')
     " A class outline viewer for Vim
@@ -63,19 +55,6 @@ command! PackInstall call PackInit() | call minpac#update('', {'do': 'quit'})
 
 let NERDChristmasTree = 1
 let NERDTreeShowHidden = 0
-
-" =============================================================================
-" Section: scrooloose/syntastic
-" =============================================================================
-
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
-
-"let g:syntastic_always_populate_loc_list = 1
-"let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open =0
-let g:syntastic_check_on_wq = 0
 
 " =============================================================================
 " Section: junegunn/fzf
